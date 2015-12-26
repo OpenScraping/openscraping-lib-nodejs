@@ -22,6 +22,6 @@
   "scripts": {
     "test": "node ./node_modules/mocha/bin/mocha"
   },
-  "author": "Ovi Dan",
+  "author": "Ovidiu Dan <contact@ovidiudan.com> (https://www.ovidiudan.com/)",
   "license": "ISC"
 }
