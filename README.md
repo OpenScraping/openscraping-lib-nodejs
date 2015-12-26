@@ -10,7 +10,7 @@ The library requires a JSON configuration file and an HTML document as input.
 
 ## Example: Extracting an article from bbc.com
 
-Below is a simple configuration file that extracts an article from [a www.bbc.com page](test/www.bbc.com.html).
+Below is a simple configuration file that extracts an article from [a www.bbc.com page](https://github.com/zmarty/openscraping-lib-nodejs/blob/master/test/www.bbc.com.html).
 ```javascript
 {
 	"title": "//div[contains(@class, 'story-body')]//h1",
@@ -36,12 +36,12 @@ And here is the result for a bbc news article:
 }
 ```
 
-Here is how [www.bbc.com page](test/www.bbc.com.html) looked like on the day we saved the HTML for this sample:
+Here is how [www.bbc.com page](https://github.com/zmarty/openscraping-lib-nodejs/blob/master/test/www.bbc.com.html) looked like on the day we saved the HTML for this sample:
 <p align="center"><img src='https://i.imgur.com/jVqxuJn.jpg' alt='BBC News example page' width='500'></p>
 
 ## Example: Extracting a list of products from Ikea
 
-The sample configuration below is more complex as it demonstrates support for extracting multiple items at the same time, and running transformations on them. For this exmaple we are using a [products page from ikea.com](test/www.ikea.com.html).
+The sample configuration below is more complex as it demonstrates support for extracting multiple items at the same time, and running transformations on them. For this exmaple we are using a [products page from ikea.com](https://github.com/zmarty/openscraping-lib-nodejs/blob/master/test/www.ikea.com.html).
 ```javascript
 {
 	"products": 
@@ -82,5 +82,5 @@ Here is a snippet of the result:
 }
 ```
 
-Here is how [www.ikea.com page](test/www.ikea.com.html) looked like on the day we saved the HTML for this sample:
+Here is how [www.ikea.com page](https://github.com/zmarty/openscraping-lib-nodejs/blob/master/test/www.ikea.com.html) looked like on the day we saved the HTML for this sample:
 <p align="center"><img src='https://i.imgur.com/2Q65ybI.jpg' alt='Ikea example page' width='500'></p>
