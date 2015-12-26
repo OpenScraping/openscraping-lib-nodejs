@@ -8,6 +8,40 @@ Turn unstructured HTML pages into structured data. The OpenScraping library can 
 
 The library requires a JSON configuration file and an HTML document as input.
 
+## Self-contained example
+First install the package using npm in your project:
+
+```
+npm install openscraping
+```
+
+Then paste this simple example in a js file and run it with node:
+```javascript
+var openscraping = require('openscraping')
+
+var config = `
+{
+  "title": "//h1",
+  "body": "//div[contains(@class, 'article')]"
+}
+`
+
+var html = '<html><body><h1>Article title</h1><div class="article">Article contents</div></body></html>'
+
+var scrapingResults = openscraping.parse(JSON.parse(config), html)
+
+console.log('Extracted title: ' + scrapingResults.title)
+console.log('Extracted body: ' + scrapingResults.body)
+console.log('Full extracted json: ' + JSON.stringify(scrapingResults))
+```
+
+Here is the output:
+```
+Extracted title: Article title
+Extracted body: Article contents
+Full extracted json: {"title":"Article title","body":"Article contents"}
+```
+
 ## Example: Extracting an article from bbc.com
 
 Below is a simple configuration file that extracts an article from [a www.bbc.com page](https://github.com/zmarty/openscraping-lib-nodejs/blob/master/test/www.bbc.com.html).
