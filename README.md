@@ -36,6 +36,8 @@ And here is the result for a bbc news article:
 }
 ```
 
+<p align="center"><img src='/../documentation-screenshots/www.bbc.com.jpg?raw=true' alt='BBC News example page' width='500'></p>
+
 ## Example: Extracting a list of products from Ikea
 
 The sample configuration below is more complex as it demonstrates support for extracting multiple items at the same time, and running transformations on them. For this exmaple we are using a [products page from ikea.com](test/www.ikea.com.html).
@@ -78,3 +80,5 @@ Here is a snippet of the result:
 	}]
 }
 ```
+
+<p align="center"><img src='/../documentation-screenshots/www.ikea.com.jpg?raw=true' alt='Ikea example page' width='500'></p>
