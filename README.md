@@ -3,6 +3,7 @@
 Alpha version, do not use for production yet.
 
 [![Build Status](https://travis-ci.org/zmarty/openscraping-lib-nodejs.svg?branch=master)](https://travis-ci.org/zmarty/openscraping-lib-nodejs)
+[![npm package version](https://badge.fury.io/js/openscraping.svg)](https://badge.fury.io/js/openscraping.svg)
 
 Turn unstructured HTML pages into structured data. The OpenScraping library can extract information from HTML pages using a JSON config file with xPath rules. It can extract complex objects such as tables and forum posts.
 
