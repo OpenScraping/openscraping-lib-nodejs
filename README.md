@@ -17,9 +17,18 @@ Here is a simple configuration file that extracts an article from www.bbc.com pa
 }
 ```
 
-And here is how to call the library:
+Here is how to call the library:
 ```javascript
 var openscraping = require('openscraping')
 scrapingResults = openscraping.parse(JSON.parse(config), html)
-console.log(scrapingResults.title)
+console.log(scrapingResults)
+```
+
+And here is the result for a bbc news article:
+```javascript
+{
+	title: 'Robert Downey Jr pardoned for 20-year-old drug conviction',
+	dateTime: '24 December 2015',
+	body: 'Body of the article is shown here'
+}
 ```
