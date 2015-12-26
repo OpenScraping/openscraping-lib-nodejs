@@ -1,6 +1,6 @@
 {
   "name": "openscraping",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Turn unstructured HTML pages to structured data. The OpenScraping library can extract information from HTML pages using a JSON config file with xPath rules. It can extract complex objects such as tables and forum posts.",
   "main": "index.js",
   "dependencies": {
@@ -23,5 +23,6 @@
     "test": "node ./node_modules/mocha/bin/mocha"
   },
   "author": "Ovidiu Dan <contact@ovidiudan.com> (https://www.ovidiudan.com/)",
-  "license": "ISC"
+  "license": "ISC",
+  "tonicExampleFilename": "example.js"
 }
