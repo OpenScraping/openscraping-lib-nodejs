@@ -41,8 +41,40 @@ describe('xpath', function () {
       done()
     })
   })
+  
+  it('should extract values correctly from IKEA', function (done) {
+    var files = ['www.ikea.com.json', 'www.ikea.com.html']
+    
+    async.map(files, readFilesAsync, function (err, results) {
+      if (err) throw err
+     
+      scrapingResults = openscraping.parse(JSON.parse(results[0]), results[1])
+      assert.isObject(scrapingResults, 'The scraping results should be of type object')
+      assert.isArray(scrapingResults.products, 'The extracted products should be of type array')
+      assert.strictEqual(61, scrapingResults.products.length, 'The code should extract 61 products from the page')
+      
+      for (var i = 0; i < scrapingResults.products.length; i++) {
+        var product = scrapingResults.products[i]
+        assert.isString(product.title, 'The extracted product title should be of type string')
+        assert.isString(product.description, 'The extracted product description should be of type string')
+        assert.isString(product.price, 'The extracted product price should be of type string')
+        
+        assert.isAbove(product.title.length, 0, 'The product title should have a length > 0')
+        assert.isAbove(product.description.length, 0, 'The product description should have a length > 0')
+        assert.isAbove(product.price.length, 0, 'The product price should have a length > 0')
+      }
+      
+      var lastProduct = scrapingResults.products[60]
+      assert.strictEqual('SANDHAUG', lastProduct.title, 0, 'The title of the last product should be: SANDHAUG')
+      assert.strictEqual('tray table', lastProduct.description, 0, 'The title of the last product should be: tray table')
+      assert.strictEqual('$79.99', lastProduct.price, 0, 'The title of the last product should be: $79.99')
+      
+      done()
+    })
+  })
 })
 
+// Run eslint
 describe('eslint', function () {
   var paths = [
     '*.js',

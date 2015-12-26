@@ -17,21 +17,29 @@ module.exports = (function createParser () {
   var jsdom = require('jsdom').jsdom
   var xmlser = require('xmlserializer')
   var dom = require('xmldom').DOMParser
+  var transformations = require('./transformations')
   
   return {
     parse: parse
   }
 
-  function parse (config, html) {
+  function parse (config, html, externalTransformations) {
     config = config || {}
+    externalTransformations = externalTransformations || {}
+    
+    // Merge external transformations with built-in ones
+    for (var attrname in externalTransformations) {
+      transformations[attrname] = externalTransformations[attrname]
+    }
+    
     var document = jsdom(html.toString())
     var xhtml = xmlser.serializeToString(document)
     xhtml = xhtml.replace(' xmlns="http://www.w3.org/1999/xhtml"', '') // Ugly hack, for now
     var doc = new dom().parseFromString(xhtml)
-    return parseNode(config, doc)
+    return parseNode(config, doc, transformations)
   }
   
-  function parseNode (config, doc) {
+  function parseNode (config, doc, transformations) {
     config = config || {}
     
     var hasChildrenRules = hasAnyChildrenRules(config)
@@ -48,15 +56,14 @@ module.exports = (function createParser () {
         if (hasChildrenRules) {
           for (i = 0; i < nodes.length; i++) {
             node = nodes[i]
-            extractedElements.push(parseChildren(config, node))
+            extractedElements.push(parseChildren(config, node, transformations))
           }
           
           return extractedElements
         } else { // Leaf node(s), so we will attempt to extract text
           for (i = 0; i < nodes.length; i++) {
             node = nodes[i]
-            var nodeText = retrieveText(node)
-            extractedElements.push(nodeText)
+            extractedElements.push(retrieveNodeContents(node, transformations, config._transformations || []))
           }
           
           if (extractedElements.length === 1) {
@@ -69,7 +76,7 @@ module.exports = (function createParser () {
         return {}
       }
     } else {
-      return parseChildren(config, doc)
+      return parseChildren(config, doc, transformations)
     }
   }
   
@@ -85,7 +92,7 @@ module.exports = (function createParser () {
     return false
   }
   
-  function parseChildren (config, node) {
+  function parseChildren (config, node, transformations) {
     config = config || {}
     
     var ret = {}
@@ -93,14 +100,36 @@ module.exports = (function createParser () {
     for (var configKey in config) {
       if (typeof configKey === 'string' && configKey.length > 0 && configKey[0] !== '_') {
         var configValue = config[configKey]
-        ret[configKey] = parseNode(configValue, node)
+        ret[configKey] = parseNode(configValue, node, transformations)
       }
     }
     
     return ret
   }
   
-  function retrieveText (node) {
-    return node.textContent
+  function retrieveNodeContents (node, transformations, requestedTransformations) {
+    if (requestedTransformations.length === 0) {
+      return node.textContent
+    } else {
+      for (var i = 0; i < requestedTransformations.length; i++) {
+        var requestedTransformation = requestedTransformations[i]
+        
+        if (typeof requestedTransformation === 'string') {
+          requestedTransformation = { '_type': requestedTransformation }
+        }
+        
+        if (transformations[requestedTransformation._type]) {
+          node = transformations[requestedTransformation._type](node, requestedTransformation)
+        } else {
+          throw new Error('The requested transformation ' + requestedTransformation + ' was not found within the available transformations')
+        }
+      }
+      
+      if (typeof node !== 'string') {
+        return node.textContent
+      } else {
+        return node
+      }
+    }
   }
 }())

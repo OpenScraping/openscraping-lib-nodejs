@@ -1,0 +1,15 @@
+{
+  "products": 
+  {
+    "_xpath": "//div[@id='productLists']//div[starts-with(@id, 'item_')]",
+    "title": ".//div[contains(@class, 'productTitle')]",
+    "description": ".//div[contains(@class, 'productDesp')]",
+    "price": 
+    {
+      "_xpath": ".//div[contains(@class, 'price')]/text()[1]",
+      "_transformations": [
+        "trim"
+      ]
+    }
+  }
+}
