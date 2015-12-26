@@ -37,7 +37,7 @@ And here is the result for a bbc news article:
 ```
 
 Here is how [www.bbc.com page](test/www.bbc.com.html) looked like on the day we saved the HTML for this sample:
-<p align="center"><img src='//i.imgur.com/jVqxuJn.jpg' alt='BBC News example page' width='500'></p>
+<p align="center"><img src='https://i.imgur.com/jVqxuJn.jpg' alt='BBC News example page' width='500'></p>
 
 ## Example: Extracting a list of products from Ikea
 
@@ -83,4 +83,4 @@ Here is a snippet of the result:
 ```
 
 Here is how [www.ikea.com page](test/www.ikea.com.html) looked like on the day we saved the HTML for this sample:
-<p align="center"><img src='//i.imgur.com/2Q65ybI.jpg' alt='Ikea example page' width='500'></p>
+<p align="center"><img src='https://i.imgur.com/2Q65ybI.jpg' alt='Ikea example page' width='500'></p>
