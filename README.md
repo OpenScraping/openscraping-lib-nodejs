@@ -1,4 +1,4 @@
-# openscraping-lib-nodejs
+# OpenScraping Node.js library
 
 Alpha version, do not use yet.
 
