@@ -1,5 +1,7 @@
 // This example file assumes you installed openscraping through npm in a new separate project
-var openscraping = require('./index')
+// using the command:  npm install openscraping
+
+var openscraping = require('openscraping')
 
 var config = `
 {
