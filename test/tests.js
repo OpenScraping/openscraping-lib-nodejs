@@ -87,20 +87,46 @@ describe('xpath', function () {
     })
   })
   
-  it('should only extract an empty array for a wrong config when _forceArray is true', function (done) {
-    var files = ['www.bbc.com.forceArray.json', 'www.ikea.com.html']
+  it('should always extract an array when _forceArray is true', function (done) {
+    var config = `
+    {
+      "title":
+      {
+        "_xpath": "//h1",
+        "_forceArray": true
+      },
+      "body": "//div[contains(@class, 'article')]",
+      "noMatch":
+      {
+        "_xpath": "//notag",
+        "_forceArray": true
+      },
+      "footer":
+      {
+        "_xpath": "//p",
+        "_forceArray": false
+      }
+    }
+    `
+
+    var html = '<html><body><h1>Article title</h1><div class="article">Article contents</div><p>Footer1</p><p>Footer2</p></body></html>'
     
-    async.map(files, readFilesAsync, function (err, results) {
-      if (err) throw err
-     
-      scrapingResults = openscraping.parse(JSON.parse(results[0]), results[1])
-      assert.isObject(scrapingResults, 'The scraping results should be of type object')
-      assert.strictEqual(1, Object.keys(scrapingResults).length, 'The scrapingResults object should have one item because we set _forceArray: true for dateTime')
-      assert.isArray(scrapingResults.dateTime, 'scrapingResults.dateTime should be an array because we set _forceArray: true for dateTime')
-      assert.strictEqual(0, scrapingResults.dateTime.length, 'scrapingResults.dateTime no items because the rule should not match')
-      
-      done()
-    })
+    scrapingResults = openscraping.parse(JSON.parse(config), html)
+    assert.isObject(scrapingResults, 'The scraping results should be of type object')
+    assert.strictEqual(4, Object.keys(scrapingResults).length, 'The scrapingResults object should contain four items')
+    
+    assert.isArray(scrapingResults.title, 'scrapingResults.title should be an array because we set _forceArray: true')
+    assert.strictEqual(1, scrapingResults.title.length, 'scrapingResults.title should contain a single item because the rule matches once')
+    
+    assert.isString(scrapingResults.body, 'scrapingResults.body should be a string because we did not set _forceArray: true and the rule only matches once in the HTML')
+    
+    assert.isArray(scrapingResults.noMatch, 'scrapingResults.noMatch should be an array because we set _forceArray: true')
+    assert.strictEqual(0, scrapingResults.noMatch.length, 'scrapingResults.noMatch should contain no items because the rule does not match')
+    
+    assert.isArray(scrapingResults.footer, 'scrapingResults.footer should be an array because the rule should match twice, even if we did not set _forceArray: true')
+    assert.strictEqual(2, scrapingResults.footer.length, 'scrapingResults.footer should contain two items')
+    
+    done()
   })
 })
 
