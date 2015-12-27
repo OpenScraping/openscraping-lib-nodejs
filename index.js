@@ -66,9 +66,9 @@ module.exports = (function createParser () {
             extractedElements.push(retrieveNodeContents(node, transformations, config._transformations || []))
           }
 
-          if (extractedElements.length === 0) {
+          if (extractedElements.length === 0 && !config._forceArray) {
             return undefined
-          } else if (extractedElements.length === 1) {
+          } else if (extractedElements.length === 1 && !config._forceArray) {
             return extractedElements[0]
           } else {
             return extractedElements

@@ -86,6 +86,22 @@ describe('xpath', function () {
       done()
     })
   })
+  
+  it('should only extract an empty array for a wrong config when _forceArray is true', function (done) {
+    var files = ['www.bbc.com.forceArray.json', 'www.ikea.com.html']
+    
+    async.map(files, readFilesAsync, function (err, results) {
+      if (err) throw err
+     
+      scrapingResults = openscraping.parse(JSON.parse(results[0]), results[1])
+      assert.isObject(scrapingResults, 'The scraping results should be of type object')
+      assert.strictEqual(1, Object.keys(scrapingResults).length, 'The scrapingResults object should have one item because we set _forceArray: true for dateTime')
+      assert.isArray(scrapingResults.dateTime, 'scrapingResults.dateTime should be an array because we set _forceArray: true for dateTime')
+      assert.strictEqual(0, scrapingResults.dateTime.length, 'scrapingResults.dateTime no items because the rule should not match')
+      
+      done()
+    })
+  })
 })
 
 // Run eslint
