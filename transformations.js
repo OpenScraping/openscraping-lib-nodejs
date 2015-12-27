@@ -16,8 +16,8 @@ module.exports = (function createTransformations () {
   var moment = require('moment')
   
   return {
-    trim: trim,
-    parseDate: parseDate
+    TrimTransformation: trim,
+    ParseDateTransformation: parseDate
   }
   
   function trim (node, config) {

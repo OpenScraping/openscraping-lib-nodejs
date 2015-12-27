@@ -6,7 +6,7 @@
     "_transformations":
     [
       {
-        "_type": "parseDate",
+        "_type": "ParseDateTransformation",
         "_format": "YYYY-MM-DD"
       }
     ]

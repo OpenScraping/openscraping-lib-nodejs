@@ -8,7 +8,7 @@
     {
       "_xpath": ".//div[contains(@class, 'price')]/text()[1]",
       "_transformations": [
-        "trim"
+        "TrimTransformation"
       ]
     }
   }
