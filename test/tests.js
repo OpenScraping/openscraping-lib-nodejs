@@ -34,7 +34,7 @@ describe('xpath', function () {
      
       scrapingResults = openscraping.parse(JSON.parse(results[0]), results[1])
       assert.strictEqual('Robert Downey Jr pardoned for 20-year-old drug conviction', scrapingResults.title, 'The title was not extracted correctly')
-      assert.strictEqual('2015-12-24T00:00:00-08:00', scrapingResults.dateTime, 'The date was not extracted correctly')
+      assert.strictEqual('2015-12-24', scrapingResults.dateTime, 'The date was not extracted correctly')
       assert.isString(scrapingResults.body, 'The extracted body should be of type string')
       assert.isAbove(scrapingResults.body.length, 0, 'The extracted body should have a length > 0')
       
