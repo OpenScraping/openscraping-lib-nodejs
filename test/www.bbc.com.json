@@ -1,5 +1,11 @@
 {
   "title": "//div[contains(@class, 'story-body')]//h1",
-  "dateTime": "//div[contains(@class, 'story-body')]//div[contains(@class, 'date')]",
+  "dateTime":
+  {
+    "_xpath": "//div[contains(@class, 'story-body')]//div[contains(@class, 'date')]",
+    "_transformations": [
+      "parseDate"
+    ]
+  },
   "body": "//div[@property='articleBody']"
 }

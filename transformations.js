@@ -13,11 +13,44 @@ ESLine configuration is below. Here is what the numbers mean:
 'use strict'
 
 module.exports = (function createTransformations () {
+  var moment = require('moment')
+  
   return {
-    trim: trim
+    trim: trim,
+    parseDate: parseDate
   }
   
   function trim (node, config) {
-    return node.textContent.trim()
+    var textContent
+    
+    if (typeof node === 'string') {
+      textContent = node
+    } else {
+      textContent = node.textContent
+    }
+    
+    return textContent.trim()
+  }
+  
+  function parseDate (node, config) {
+    var textContent
+    
+    if (typeof node === 'string') {
+      textContent = node
+    } else {
+      textContent = node.textContent
+    }
+    
+    var extractedDate = moment(new Date(textContent))
+    
+    if (extractedDate.isValid()) {
+      if (config._format) {
+        return extractedDate.format(config._format)
+      } else {
+        return extractedDate.format()
+      }
+    } else {
+      return undefined
+    }
   }
 }())
