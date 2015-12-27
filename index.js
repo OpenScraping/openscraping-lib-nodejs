@@ -65,8 +65,10 @@ module.exports = (function createParser () {
             node = nodes[i]
             extractedElements.push(retrieveNodeContents(node, transformations, config._transformations || []))
           }
-          
-          if (extractedElements.length === 1) {
+
+          if (extractedElements.length === 0) {
+            return undefined
+          } else if (extractedElements.length === 1) {
             return extractedElements[0]
           } else {
             return extractedElements
@@ -100,7 +102,11 @@ module.exports = (function createParser () {
     for (var configKey in config) {
       if (typeof configKey === 'string' && configKey.length > 0 && configKey[0] !== '_') {
         var configValue = config[configKey]
-        ret[configKey] = parseNode(configValue, node, transformations)
+        var parseResults = parseNode(configValue, node, transformations)
+        
+        if (typeof parseResults !== 'undefined') {
+          ret[configKey] = parseResults
+        }
       }
     }
     

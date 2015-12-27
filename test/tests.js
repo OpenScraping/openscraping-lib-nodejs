@@ -72,6 +72,20 @@ describe('xpath', function () {
       done()
     })
   })
+  
+  it('should not extract any values for the wrong config', function (done) {
+    var files = ['www.bbc.com.json', 'www.ikea.com.html']
+    
+    async.map(files, readFilesAsync, function (err, results) {
+      if (err) throw err
+     
+      scrapingResults = openscraping.parse(JSON.parse(results[0]), results[1])
+      assert.isObject(scrapingResults, 'The scraping results should be of type object')
+      assert.strictEqual(0, Object.keys(scrapingResults).length, 'The scrapingResults object should be empty')
+      
+      done()
+    })
+  })
 })
 
 // Run eslint
