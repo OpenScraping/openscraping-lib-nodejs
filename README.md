@@ -87,7 +87,7 @@ The sample configuration below is more complex as it demonstrates support for ex
     {
       "_xpath": ".//div[contains(@class, 'price')]/text()[1]",
       "_transformations": [
-        "trim"
+        "TrimTransformation"
       ]
     }
   }
