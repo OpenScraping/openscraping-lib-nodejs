@@ -1,6 +1,6 @@
 {
   "name": "openscraping",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Turn unstructured HTML pages to structured data. The OpenScraping library can extract information from HTML pages using a JSON config file with xPath rules. It can extract complex objects such as tables and forum posts.",
   "main": "index.js",
   "dependencies": {
@@ -28,5 +28,13 @@
   "tonicExampleFilename": "example.js",
   "engines": {
     "node": ">=0.4"
+  },
+  "bugs": {
+    "url": "https://github.com/zmarty/openscraping-lib-nodejs/issues",
+    "email": "contact@ovidiudan.com"
+  },
+  "repository": {
+    "url": "https://github.com/zmarty/openscraping-lib-nodejs",
+    "type": "git"
   }
 }
