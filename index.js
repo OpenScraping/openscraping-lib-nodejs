@@ -14,10 +14,16 @@ ESLine configuration is below. Here is what the numbers mean:
 
 module.exports = (function createParser () {
   var xpath = require('xpath')
-  var jsdom = require('jsdom').jsdom
+  var jsdom = require('jsdom')
   var xmlser = require('xmlserializer')
   var dom = require('xmldom').DOMParser
   var transformations = require('./transformations')
+  
+  jsdom.defaultDocumentFeatures = {
+    FetchExternalResources: false,
+    ProcessExternalResources: false,
+    MutationEvents: false
+  }
   
   return {
     parse: parse
@@ -32,7 +38,7 @@ module.exports = (function createParser () {
       transformations[attrname] = externalTransformations[attrname]
     }
     
-    var document = jsdom(html.toString())
+    var document = jsdom.jsdom(html.toString())
     var xhtml = xmlser.serializeToString(document)
     xhtml = xhtml.replace(' xmlns="http://www.w3.org/1999/xhtml"', '') // Ugly hack, for now
     var doc = new dom().parseFromString(xhtml)
