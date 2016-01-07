@@ -159,7 +159,7 @@ describe('TrimTransformation', function () {
 describe('ParseDateTransformation', function () {
   it('should parse text to date', function (done) {
     assert.isUndefined(transformations.ParseDateTransformation('no date here'), 'An invalid date text should not be parsed to a date object')
-    assert.isTrue(transformations.ParseDateTransformation('2016-01-06').startsWith('2016-01-05T'), 'Should correctly parse the text to date')
+    assert.strictEqual(transformations.ParseDateTransformation('2016-01-06', { '_format': 'YYYY' }), '2016', 'Should correctly parse the text to date')
     
     done()
   })
