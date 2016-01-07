@@ -14,10 +14,12 @@ ESLine configuration is below. Here is what the numbers mean:
 
 module.exports = (function createTransformations () {
   var moment = require('moment')
+  var findExtraWhitespacesRegex = new RegExp('\\s\\s+', 'gm')
   
   return {
     TrimTransformation: trim,
-    ParseDateTransformation: parseDate
+    ParseDateTransformation: parseDate,
+    RemoveExtraWhitespaceTransformation: removeExtraWhitespace
   }
   
   function trim (node, config) {
@@ -44,7 +46,7 @@ module.exports = (function createTransformations () {
     var extractedDate = moment(new Date(textContent))
     
     if (extractedDate.isValid()) {
-      if (config._format) {
+      if (config && config._format) {
         return extractedDate.format(config._format)
       } else {
         return extractedDate.format()
@@ -52,5 +54,17 @@ module.exports = (function createTransformations () {
     } else {
       return undefined
     }
+  }
+  
+  function removeExtraWhitespace (node, config) {
+    var textContent
+    
+    if (typeof node === 'string') {
+      textContent = node
+    } else {
+      textContent = node.textContent
+    }
+    
+    return textContent.replace(findExtraWhitespacesRegex, ' ')
   }
 }())
