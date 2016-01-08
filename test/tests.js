@@ -144,6 +144,23 @@ describe('eslint', function () {
   lint(paths, options)
 })
 
+// Run _removeNodes tests
+describe('_removeNodes rules in the config file', function () {
+  it('should correctly remove the script tags from the HTML page', function (done) {
+    var files = ['remove-script-tags-test.json', 'remove-script-tags-test.html']
+    
+    async.map(files, readFilesAsync, function (err, results) {
+      if (err) throw err
+     
+      scrapingResults = openscraping.parse(JSON.parse(results[0]), results[1])
+      assert.isObject(scrapingResults, 'The scraping results should be of type object')
+      assert.strictEqual(scrapingResults.adsWithScript, 'Only text that should remain here', 'scrapingResults.adsWithScript should only contain the text that remains after we removed the script tags and their contents')
+      
+      done()
+    })
+  })
+})
+
 // Run transformation tests
 describe('TrimTransformation', function () {
   it('should trim text', function (done) {

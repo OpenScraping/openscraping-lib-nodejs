@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://ogp.me/ns/fb#"><head><!-- MacLeod loves you! --><meta content="text/html; charset=utf-8" http-equiv="Content-Type"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UgQCVVdaGwAGU1VUAAE="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),f=c.length,u=i(a,o,r),d=0;f>d;d++)c[d].apply(u,n);return u}function a(t,e){f[t]=s(t).concat(e)}function s(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:s,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t){try{i.console&&console.log(t)}catch(e){}}var n,r=t("ee"),o=t(1),i={};try{n=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(i.console=!0,-1!==n.indexOf("dev")&&(i.dev=!0),-1!==n.indexOf("nr_dev")&&(i.nrDev=!0))}catch(a){}i.nrDev&&r.on("internal-error",function(t){e(t.stack)}),i.dev&&r.on("fn-err",function(t,n,r){e(r.stack)}),i.dev&&(e("NR AGENT IN DEVELOPMENT MODE"),e("flags: "+o(i,function(t){return t}).join(", ")))},{1:24,ee:"QJf3ax"}],4:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(f){try{r("ierr",[f,(new Date).getTime(),!0])}catch(u){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(6),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,t(5),window.onerror=e;try{throw new Error}catch(f){"stack"in f&&(t(1),t(2),"addEventListener"in window&&t(3),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)&&t(4),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:11,2:10,3:8,4:12,5:3,6:25,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],5:[function(t){if(window.addEventListener){var e=t("handle"),n=t("ee");t(1),window.addEventListener("click",function(){e("inc",["ck"])},!1),window.addEventListener("hashchange",function(){e("inc",["hc"])},!1),n.on("pushState-start",function(){e("inc",["ps"])})}},{1:9,ee:"QJf3ax",handle:"D5DuLP"}],6:[function(t){t("loader").features.ins=!0},{loader:"G9z0Bl"}],7:[function(t){function e(){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var n=t("ee"),r=t("handle"),o=t(1),i=t(2);t("loader").features.stn=!0,t(3);var a=Event;n.on("fn-start",function(t){var e=t[0];e instanceof a&&(this.bstStart=Date.now())}),n.on("fn-end",function(t,e){var n=t[0];n instanceof a&&r("bst",[n,e,this.bstStart,Date.now()])}),o.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),o.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),i.on("fn-start",function(){this.bstStart=Date.now()}),i.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),n.on("pushState-start",function(){this.time=Date.now(),this.startPath=location.pathname+location.hash}),n.on("pushState-end",function(){r("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.addEventListener("webkitresourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1),window.performance.addEventListener("resourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1)),document.addEventListener("scroll",e,!1),document.addEventListener("keypress",e,!1),document.addEventListener("click",e,!1)}},{1:11,2:10,3:9,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],8:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=t("ee").create(),i=t(1)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t,e){function n(){return s}if(t[1]){var r=t[1];if("function"==typeof r){var s=a(r,"nr@wrapped",function(){return i(r,"fn-",n,r.name||"anonymous")});this.wrapped=t[1]=s,o.emit("initEventContext",[t,e],this.wrapped)}else"function"==typeof r.handleEvent&&i.inPlace(r,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:26,ee:"QJf3ax",gos:"7eSDFh"}],9:[function(t,e){var n=t("ee").create(),r=t(1)(n);e.exports=n,r.inPlace(window.history,["pushState","replaceState"],"-")},{1:26,ee:"QJf3ax"}],10:[function(t,e){var n=t("ee").create(),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:26,ee:"QJf3ax"}],11:[function(t,e){function n(t,e,n){t[0]=i(t[0],"fn-",null,n)}function r(t,e,n){function r(){return a}this.ctx={};var a={"nr@context":this.ctx};o.emit("initTimerContext",[t,n],a),t[0]=i(t[0],"fn-",r,n)}var o=t("ee").create(),i=t(1)(o);e.exports=o,i.inPlace(window,["setTimeout","setImmediate"],"setTimer-"),i.inPlace(window,["setInterval"],"setInterval-"),i.inPlace(window,["clearTimeout","clearImmediate"],"clearTimeout-"),o.on("setInterval-start",n),o.on("setTimer-start",r)},{1:26,ee:"QJf3ax"}],12:[function(t,e){function n(){f.inPlace(this,p,"fn-",o)}function r(t,e){f.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}function i(t,e){for(var n in t)e[n]=t[n];return e}var a=t("ee").create(),s=t(1),c=t(2),f=c(a),u=c(s),d=window.XMLHttpRequest,p=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=a,window.XMLHttpRequest=function(t){var e=new d(t);try{a.emit("new-xhr",[],e),e.hasOwnProperty("addEventListener")&&u.inPlace(e,["addEventListener","removeEventListener"],"-",o),e.addEventListener("readystatechange",n,!1)}catch(r){try{a.emit("internal-error",[r])}catch(i){}}return e},i(d,XMLHttpRequest),XMLHttpRequest.prototype=d.prototype,f.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),a.on("send-xhr-start",r),a.on("open-xhr-start",r)},{1:8,2:26,ee:"QJf3ax"}],13:[function(t){function e(t){var e=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!e.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var a=t.responseType,f="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,u=n(f);if(u&&(r.rxSize=u),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(e.cat=d.split(", ").pop())}}else e.status=0;r.cbTime=this.cbTime,o("xhr",[e,r,this.startTime])}}}function n(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,f=t(1),u=window.XMLHttpRequest;t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=e,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,e){var r=this.metrics,o=t[0],i=this;if(r&&o){var f=n(o);f&&(r.txSize=f)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof e.onload))&&i.end(e)}catch(n){try{a.emit("internal-error",[n])}catch(r){}}};for(var u=0;c>u;u++)e.addEventListener(s[u],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof u&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof u&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof u&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:14,3:12,4:8,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],14:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],15:[function(t,e){function n(t){return function(){r(t,[(new Date).getTime()].concat(i(arguments)))}}var r=t("handle"),o=t(1),i=t(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(t,e){window.NREUM[e]=n("api-"+e)}),e.exports=window.NREUM},{1:24,2:25,handle:"D5DuLP"}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):void(r.q&&(r.q[t]||(r.q[t]=[]),r.q[t].push(e)))}var r=t("ee").create();e.exports=n,n.ee=r,r.q={}},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],G9z0Bl:[function(t,e){function n(){var t=p.info=NREUM.info,e=f.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){s(d,function(e,n){e in t||(t[e]=n)});var n="https"===u.split(":")[0]||t.sslForHttp;p.proto=n?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=p.proto+t.agent,e.parentNode.insertBefore(r,e)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=window,f=c.document;t(2);var u=(""+location).split("?")[0],d={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-768.min.js"},p=e.exports={offset:i(),origin:u,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),c.addEventListener("load",n,!1)):(f.attachEvent("onreadystatechange",r),c.attachEvent("onload",n)),a("mark",["firstbyte",i()])},{1:24,2:15,handle:"D5DuLP"}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],24:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],25:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],26:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@original",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,f;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){u([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return f=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,f],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=t,f(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,f?s+o:o,i,s))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){u([o,e,n,r])}}function f(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){u([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function u(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:25,ee:"QJf3ax"}]},{},["G9z0Bl",4,13,7,6,5]);</script><meta content="en_US" http-equiv="Content-Language"><title>Facebook wants to kill the phone number in 2016 - CNET</title><meta name="description" content="Technically Incorrect: The head of Facebook's Messenger chat service believes no one needs a phone number if they have, well, Messenger."><link rel="canonical" href="http://www.cnet.com/news/facebook-wants-to-make-phone-numbers-obsolete-in-2016/"><meta property="al:ios:app_name" content="CNET"><meta property="al:ios:app_store_id" content="383989837"><meta property="al:ios:url" content="http://www.cnet.com/news/facebook-wants-to-make-phone-numbers-obsolete-in-2016/?search=toapp"><link rel="alternate" hreflang="x-default" href="http://www.cnet.com/news/facebook-wants-to-make-phone-numbers-obsolete-in-2016/"><link rel="alternate" hreflang="en-au" href="http://www.cnet.com/au/news/facebook-wants-to-make-phone-numbers-obsolete-in-2016/"><link rel="alternate" hreflang="en-gb" href="http://www.cnet.com/uk/news/facebook-wants-to-make-phone-numbers-obsolete-in-2016/"><link rel="alternate" hreflang="en-ie" href="http://www.cnet.com/uk/news/facebook-wants-to-make-phone-numbers-obsolete-in-2016/"><link rel="alternate" hreflang="en-us" href="http://www.cnet.com/news/facebook-wants-to-make-phone-numbers-obsolete-in-2016/"><link rel="search" type="application/opensearchdescription+xml" title="CNET Search" href="http://www.cnet.com/opensearch.xml"><meta property="og:site_name" content="CNET"><meta property="og:title" content="Facebook wants to kill the phone number in 2016 - CNET"><meta property="og:description" content="Technically Incorrect: The head of Facebook's Messenger chat service believes no one needs a phone number if they have, well, Messenger."><meta property="og:image" content="http://cnet3.cbsistatic.com/hub/i/r/2015/12/24/1b1a259c-6001-4557-a0cc-c13da9397d69/thumbnail/670x503/f9492dab8cae941c2a32b67f1b755b33/fd-mark-zuckerberg-facebook-1187610x407.jpg"><meta property="og:type" content="Article"><meta property="og:url" content="http://www.cnet.com/news/facebook-wants-to-make-phone-numbers-obsolete-in-2016/"><meta property="fb:app_id" content="16995676698"><meta property="fb:admins" content="100001036810388"><meta property="article:publisher" content="https://www.facebook.com/cnet"><meta content="30261067" property="twitter:account_id"><meta content="summary" property="twitter:card"><meta content="http://www.cnet.com/news/facebook-wants-to-make-phone-numbers-obsolete-in-2016/" property="twitter:url"><meta content="Facebook wants to kill the phone number in 2016" property="twitter:title"><meta content="Technically Incorrect: The head of Facebook's Messenger chat service believes no one needs a phone number if they have, well, Messenger." property="twitter:description"><meta content="http://cnet3.cbsistatic.com/hub/i/r/2015/12/24/1b1a259c-6001-4557-a0cc-c13da9397d69/thumbnail/670x503/f9492dab8cae941c2a32b67f1b755b33/fd-mark-zuckerberg-facebook-1187610x407.jpg" property="twitter:image"><meta content="670" property="twitter:image:width"><meta content="503" property="twitter:image:height"><meta content="@CNET" property="twitter:site"><meta content="@ChrisMatyszczyk" property="twitter:creator"><meta content="I1kHyfzmmG1fEVjq8GBUgkfCHc6PNtxce1_VyUuJhws" name="google-site-verification"><meta content="wNWLoFvk5wsdZQ-u75uCNiaHNa7FLFmNtH2t7dZbXmQ" name="google-site-verification"><meta content="47524839a64b83c951afca9ef6c838e0" name="p:domain_verify"><meta content="Product reviews and prices, software downloads, and tech news - CNET" name="msapplication-tooltip"><meta content="http://www.cnet.com/" name="msapplication-starturl"><meta content="width=1024;height=768" name="msapplication-window"><meta content="#424244" name="msapplication-navbutton-color"><meta content="name=Home; action-uri=http://www.cnet.com/; icon-uri=http://www.cnet.com/favicon.ico" name="msapplication-task"><meta content="name=Downloads; action-uri=http://download.cnet.com/; icon-uri=http://download.cnet.com/favicon.ico" name="msapplication-task"><meta content="name=News; action-uri=http://www.cnet.com/news/; icon-uri=http://www.cnet.com/favicon.ico" name="msapplication-task"><meta content="name=Reviews; action-uri=http://www.cnet.com/reviews/; icon-uri=http://www.cnet.com/favicon.ico" name="msapplication-task"><meta content="name=Videos; action-uri=http://www.cnet.com/videos/; icon-uri=http://www.cnet.com/favicon.ico" name="msapplication-task"><meta content="name=Forums; action-uri=http://forums.cnet.com/; icon-uri=http://www.cnet.com/favicon.ico" name="msapplication-task"><meta name="tp:baseUrl" content="http://cnet2.cbsistatic.com/fly/bundles/cnetmpxpdk/pdk"><meta name="viewport" content="width=device-width"><meta name="fragment" content="!"><link rel="manifest" href="/manifest.json"><link rel="stylesheet" href="http://cnet3.cbsistatic.com/fly/css/core/main.desktop-7d1812aab9-rev.css"><link rel="stylesheet" href="http://cnet4.cbsistatic.com/fly/css/article/article.desktop-aeaa45f7e3-rev.css"><!--[if IE 8]> <link rel="stylesheet" href="http://cnet3.cbsistatic.com/fly/css/core/ie/ie8-8b304ec002-rev.css" /> <![endif]--><!--[if IE 9]> <link rel="stylesheet" href="http://cnet2.cbsistatic.com/fly/css/core/ie/ie9-2df090d0d6-rev.css" /> <![endif]--><script src="http://cnet4.cbsistatic.com/fly/bundles/cnetjs/js/libs/boomr.js"></script><script type="text/javascript">
+
+    
+    window.CnetPageVars = {
+        ads: {
+            enabled: true,
+            data: {"gpt":{"targeting":{"section":"news","pid":"8f1a7b39-2d99-4565-a941-210c24ba8dd7","sectopic":"internet","tag":["facebook"],"collection":"technically-incorrect","edition":"us","test":"||","device":"desktop","ptype":"article","cid":"facebook-wants-to-make-phone-numbers-obsolete-in-2016","env":"prod"},"adConfig":{"network":{"dev":8264,"prod":8264},"method":"async-inline","regions":[{"region":"uk","countries":["gb","ie","za","bh","kw","om","qa","sa","ae","iq","eg","ye","fr"]},{"region":"au","countries":["au","nz"]},{"region":"asia","countries":["sg","my","th","id","ph","hk","vn","in","tw"]}],"adUnits":{"intromercial":{"outOfPage":true,"collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"skin":{"sizes":[[1600,1000]],"position":"top","eventCallbacks":{"slotRenderEnded":"adSkinCallback"}},"resourceCenterTop":{"sizes":[[371,301]],"position":"top","collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"resourceCenterBottom":{"sizes":[[632,160]],"position":"bottom"},"mpuPlusTop":{"sizes":[[300,250],[300,600],[300,1050]],"position":"top","eventCallbacks":{"slotRenderEnded":"mpuPlusTopCallback"}},"marqueeTop":{"sizes":[[300,60]],"position":"top"},"mpuTop":{"sizes":[[300,250]],"position":"top","eventCallbacks":{"slotRenderEnded":"mpuTopCallback"}},"mpuBottom":{"sizes":[[300,250]],"position":"bottom"},"leaderPlusTop":{"sizes":[[970,66],[728,90],[970,250]],"position":"top","eventCallbacks":{"slotRenderEnded":"leaderboardTopPlusCallback"}},"leaderTop":{"sizes":[[970,66],[728,90]],"position":"top","eventCallbacks":{"slotRenderEnded":"leaderTopCallback"}},"buttonTop":{"sizes":[[88,31],[70,20],[155,40]],"position":"top","collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"omnibarTop":{"sizes":[[980,45]],"position":"top","eventCallbacks":{"slotRenderEnded":"omnibarTopCallback"},"collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"sponsoredSearchTop":{"sizes":[[501,11]],"position":"top","collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"dynamicTextLinkTop":{"sizes":[[1171,61]],"position":"top","collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"mpuMiddle":{"sizes":[[300,250]],"position":"middle","eventCallbacks":{"slotRenderEnded":"mpuMiddleCallback"}},"mpuMiddle2":{"sizes":[[300,250]],"position":"middle2"},"leaderPlusMiddle":{"sizes":[[970,66],[728,90],[970,250]],"position":"middle"},"leaderPlusMantle":{"sizes":[[970,66],[728,90],[970,250]],"position":"mantle","eventCallbacks":{"slotRenderEnded":"leaderPlusMantleCallback"}},"leaderMiddle":{"sizes":[[970,66],[728,90]],"position":"middle"},"leaderMiddle2":{"sizes":[[970,66],[728,90]],"position":"middle2"},"leaderBottom":{"sizes":[[970,66],[728,90]],"position":"bottom"},"leaderPlusBottom":{"sizes":[[970,66],[728,90]],"position":"bottom"},"dynamicShowcaseTop":{"sizes":[[371,771]],"position":"top","collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"infoBoardTop":{"sizes":[[771,201],[620,90]],"position":"top","collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"infoButtonsTop":{"sizes":[[771,61]],"position":"top","collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"socialLogoBottom":{"sizes":[[88,31]],"position":"bottom","eventCallbacks":{"slotRenderEnded":"sharebarCallback"},"collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"socialLogoTop":{"sizes":[[88,31]],"position":"top","collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"sponsoredFeedTop":{"sizes":[[571,121]],"position":"top","collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"inlineProductCarouselTop":{"sizes":[[621,221],[621,471]],"position":"top","eventCallbacks":{"slotRenderEnded":"inlineProductCarouselTopCallback"},"collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"inpageVideoTop":{"sizes":[[641,321],[321,31]],"position":"top","collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"windowTop":{"sizes":[[120,90]],"position":"top","collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"windowBottom":{"sizes":[[120,90]],"position":"bottom","collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"sponsoredMatchTop":{"sizes":[[971,201]],"position":"top","collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"replaySquareTop":{"sizes":[[271,271]],"position":"top","eventCallbacks":{"slotRenderEnded":"replaySquareCallBack"},"collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"replayWideTop":{"sizes":[[771,131],[11,11]],"position":"top","eventCallbacks":{"slotRenderEnded":"replayWideTopCallback"},"collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"replayWideBottom":{"sizes":[[771,131],[11,11]],"position":"bottom","eventCallbacks":{"slotRenderEnded":"replayWideBottomCallback"},"collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"replayWideEditorspicks":{"sizes":[[771,131],[11,11]],"position":"editorspicks","eventCallbacks":{"slotRenderEnded":"replayWideEditorspicksCallback"},"collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"replayShowcaseTop":{"sizes":[[371,291]],"position":"top","collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"nativeThisweekoncnet":{"sizes":[[11,11]],"position":"thisweekoncnet","collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true,"customTargeting":{"strr":"d320ba44","strb":"2434f2df"}},"nativeCompare":{"sizes":[[11,11]],"position":"compare","eventCallbacks":{"slotRenderEnded":"nativeCompareCallback"},"collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"overgifTop":{"sizes":[[251,11]],"position":"top","collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"showcaseTop":{"sizes":[[3,3]],"position":"top"},"videoThumbnailTop":{"sizes":[[171,231],[771,131],[11,11]],"position":"thumbnail","eventCallbacks":{"slotRenderEnded":"videoThumbnailTopCallback"},"collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true,"customTargeting":{"strr":"ec8036a4","strb":"bfdbade1"}},"nativeToc":{"sizes":[[300,90],[11,11]],"position":"toc","eventCallbacks":{"slotRenderEnded":"nativeTocCallBack"},"collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true,"customTargeting":{"strr":"9bebd1e1","strb":"12b2a632"}},"customAd":{"sizes":[[330,100],[330,59]],"position":"top"},"incontentAd":{"sizes":[[321,31]],"position":"top"}},"mobile":{"adUnits":{"hpto":{"outOfPage":true,"collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"mobileBannerTop":{"sizes":[[320,50],[6,1]],"position":"increment"},"mobileBannerMpuHptoOverlay":{"outOfPage":true},"mobileMpuBottom":{"sizes":[[300,250]],"position":"increment"},"mobileBanner":{"sizes":[[320,50]],"position":"increment"},"mobileCustomAd":{"sizes":[[330,100]],"position":"increment"},"mobileReplaySquare":{"sizes":[[271,271]],"position":"increment"},"mobileReplayWide":{"sizes":[[771,131],[11,11]],"position":"increment"},"mobileReplayWideInc":{"sizes":[[771,131],[11,11]],"position":"inc"},"mobileReplayWidePlus":{"sizes":[[771,131],[320,50],[11,11]],"position":"increment"},"mobileBannerPlus":{"sizes":[[300,250],[320,50],[621,221]],"position":"increment"},"mobileMpu":{"sizes":[[300,250]],"position":"increment"},"mobileOvergif":{"sizes":[[251,11]],"position":"increment","collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"mobileShowcase":{"sizes":[[3,3]],"position":"increment","collapseEmptyDiv":true,"collapseEmptyDivOnPageload":true},"mobileIncontentAd":{"sizes":[[321,31],[300,250]],"position":"increment"}}},"tablet":{"adUnits":{"resourceCenterTop":{"sizes":[[300,300]],"position":"top"},"resourceCenterBottom":{"sizes":[[632,160]],"position":"bottom"},"mpuPlusTop":{"sizes":[[300,600],[300,250]]},"marqueeTop":{"sizes":[[234,60]],"position":"top"},"mpuTop":{"sizes":[[300,250],[300,600]],"position":"top"},"mpuBottom":{"sizes":[[300,250]],"position":"bottom"},"leaderTop":{"sizes":[[728,90],[970,66]],"position":"bottom"},"leaderPlusTop":{"sizes":[[728,90],[970,66],[970,250]],"position":"top"}}},"siteName":"cnet","collapseEmptyDiv":false,"setRefreshUnfilledSlots":true,"setClearUnfilledSlots":false,"disableInitialLoad":false,"disableInitialLoadCompanions":false,"enableSingleRequest":true,"enableAsyncRendering":true,"defaultRegion":"aw","adOrder":["leader_top","leader_plus_top","mpu_top","mpu_plus_top","leader_plus_middle","leader_middle","leader_middle2","mpu_middle","mpu_middle2","mpu_bottom","leader_bottom","skin","incontent_ad","omnibar_top","marquee_top","window_top","window_bottom","inpage_video_top","intromercial","replay_wide_top","replay_wide_bottom","replay_wide_editorspicks","video_thumbnail_top","nativ_toc","native_compare","native_thisweekoncnet","inline_product_carousel_top","resource_center_top","social_logo_bottom","showcase_top","info_board_top","sponsored_feed_top","info_buttons_top","dynamic_text_link_top","dynamic_showcase_top","sponsored_search_top","custom_ad"],"disableInitialLoadRefresh":true,"deviceRegions":{"mobile":[{"region":"aw","countries":["all"]}],"desktop":[],"tablet":[]}},"containerId":"568f3b88904e2","slotVars":{"network":"8264","siteName":"cnet","collapseEmptyDiv":"","topics":"tech-culture","platform":"desktop"},"adType":"gpt","adDivIds":["native-toc-568f3b88904e2","inpage-video-top-568f3b88904e2","social-logo-bottom-568f3b88904e2","mpu-plus-top-568f3b88904e2","mpu-bottom-568f3b88904e2","video-thumbnail-top-568f3b88904e2","leader-bottom-568f3b88904e2","omnibar-top-568f3b88904e2","intromercial-568f3b88904e2","skin-568f3b88904e2","leader-top-568f3b88904e2","dynamic-text-link-top-568f3b88904e2"]},"cookieName":"cnet_ad","cookieServicePath":"http:\/\/www.cnet.com\/ad\/ad-cookie\/","session":4,"subSession":6}
+        },
+        assetsVersion: {
+            version: '1989-fly'
+        },
+        auto: false,
+        build: true,
+        cmsEdit: {
+            contentId: '8f1a7b39-2d99-4565-a941-210c24ba8dd7',
+            contentType: 'article'
+        },
+        device: 'desktop',
+        deviceOriginal: 'desktop',
+        edition: {
+            code: 'us'
+        },
+        environment: 'prod',
+        pageType: 'article',
+        promotionals: {
+            flyoutPromo:{
+                url: '/flyout-promo/'
+            }
+        },
+        tracking: {
+            enabled: true
+        },
+        txId: '0f7e3274-f3f8-465a-a02b-43146cfd5904',
+        user: {
+            baseUrl: 'https://secure-fly.cnet.com',
+            'urls': {
+                'login': "https://secure-fly.cnet.com/user/login/",
+                'register': "https://secure-fly.cnet.com/user/registration/",
+                'confirmRegistration': "http://www.cnet.com/user/instructions-confirm-registration/",
+                'forgotPassword': "https://secure-fly.cnet.com/user/forgotten-password/",
+                'passwordSent': "http://www.cnet.com/user/password-sent/",
+                'createUsername': "http://www.cnet.com/user/create-username/",
+                'sendConfirmation': "http://www.cnet.com/user/send-confirmation/?registered=1",
+                'userData': "http://www.cnet.com/user/get-data/",
+                'flag': "http://www.cnet.com/user/flag/",
+                'socialAdditionalInformation': "http://www.cnet.com/user/social-additional-information/"
+            }
+        },
+        video: {
+            tpBaseUrl: 'http://cnet2.cbsistatic.com/fly/bundles/cnetmpxpdk/pdk',
+            playCount: 0
+        }
+    };
+
+
+    
+    
+    
+    
+    var utag_data = {"isEnabled":true,"articleAuthorId":["1bc61ae6-8176-11e2-9d12-0018fe8a00b0"],"articleAuthorName":["chris matyszczyk"],"articleId":"8f1a7b39-2d99-4565-a941-210c24ba8dd7","articlePubDate":"2016-01-08 04:30:03","articleTitle":"facebook wants to kill the phone number in 2016","articleType":"magnet_article","collectionId":["8442c601-5ee5-4ec8-9442-186f2c4f470c"],"collectionName":["technically incorrect"],"deviceType":"desktop","isDev":"0","pageNum":"1","pageType":"article","siteEdition":"us","siteHier":["news","tech-culture"],"siteSection":"news","siteType":"responsive web","topicId":["1c31d95d-c387-11e2-8208-0291187b029a","1c1356b9-c387-11e2-8208-0291187b029a","1c31d95d-c387-11e2-8208-0291187b029a"],"topicName":["tech culture","internet","tech culture"],"dwAccount":"cbsicnetglobalsite","dwHost":"dw.cbsi.com","siteId":1,"reportSuiteId":"cbsicnetglobalsite","bkSiteId":3321,"limit":4,"brand":"cnet","collectionSlug":["technically-incorrect"],"tagSlugs":["facebook"],"topicSlugs":["tech-culture","internet","tech-culture"],"siteName":"cnet","tealium":{"profile":"cnetglobalsite","env":"prod"},"soastaBucket":"","soastaPageType":"article"};
+</script><script type="text/javascript" id="beanstockNucleusInjector">
+        window.CnetPageVars.ads.beanstockNucleus = {
+            isEnabled:      false,
+            isInitialized:  false,
+            isCompleted:    false,
+            isTimedOut:     false,
+            timeout:        null,
+            injector:       'injectBeanStockNucleusTag',
+            tagId:          'cx-nuke',
+            initTime:       new Date().getTime()
+        };
+
+            </script><!--[if lt IE 9]> <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> <![endif]--></head><body class="not-logged-in
+    us
+        
+    
+    
+    
+    
+    
+" data-cms-edit='{"url":"http:\/\/cms-beta.cnet.com\/content\/article\/8f1a7b39-2d99-4565-a941-210c24ba8dd7"}'>
+                                    
+    
+<header id="rbHeader" class="page-header"><div id="secondary" class="">
+                                    
+<div id="socialHeader">
+    <span>Connect with us</span>
+           	
+            <div class="socialWrapper" data-component='["touchMenuHover","iframeHoverFix"]'>
+                
+                        <div class="networkWrapper">
+        <a target="_blank" href="http://www.facebook.com/CNET" class="social-menu-facebook" data-component="socialTracking" data-social-tracking-options='{"socialSite":"facebook"}'>facebook</a>
+    </div>
+
+        
+                        <div class="networkWrapper">
+        <a target="_blank" href="https://twitter.com/intent/user?screen_name=CNET" class="social-menu-twitter" data-component="socialTracking" data-social-tracking-options='{"socialSite":"twitter"}'>twitter</a>
+    </div>
+
+        
+            </div>
+
+</div>
+                            </div>
+            
+                        <div class="fixation" data-component="stickyElement">
+                                    <div id="omnibar_top">
+                    
+                                    <div id="omnibar-top-568f3b88904e2" class="ad-omnibar-top" data-ad="omnibar-top">
+    <script>
+        window.console && console.log && console.log("ADS: queuing omnibar-top-568f3b88904e2 for display");
+        var cbsiGptDivIds = cbsiGptDivIds || [];
+        cbsiGptDivIds.push("omnibar-top-568f3b88904e2");
+    </script></div>
+                            </div>
+                        <div id="primary">
+                                    <a id="rbLogo" href="/">CNET</a>
+                
+                                        <form method="get" action="/search/" class="col-3 headerSearchForm single" data-auto-suggest-options='{"url":"\/autosuggest\/xhr\/"}' data-component='["formTrim","autoSuggest"]'>
+    <div class="searchBar">
+        <input type="text" placeholder="Search CNET" id="primarySearch" name="query" value="" autocomplete="off"><button type="submit" class="searchButton" value="Search"></button>
+    </div>
+</form>                
+                                    
+
+<nav id="primaryNav" section="brandnav"><div class="menu single" id="reviewsMenu" data-component="touchMenuHover">
+        <a class="menuHead" data-trigger="menu" href="/reviews/">Reviews</a>
+                    <div class="menuWrapper">
+                <!--[if lt IE 9]>
+                <noscript><div class="navTag"></noscript>
+                <![endif]-->
+                <nav><div class="navWrapper">
+                        <ul class="topCategories"><li class="hed">Top Categories</li>
+                            <li><a href="/cnet100/">CNET 100</a></li> <!-- debate with seo over editions, see footer -->
+                            <li><a href="/topics/appliances/">Appliances</a></li>
+                            <li><a href="/topics/audio/">Audio</a></li>
+                            <li><a href="/topics/cameras/">Cameras</a></li>
+                            <li><a href="/topics/car-tech/">Car Tech</a></li>
+                            <li><a href="/topics/desktops/">Desktops</a></li>
+                            <li><a href="/topics/headphones/">Headphones</a></li>
+                            <li><a href="/topics/laptops/">Laptops</a></li>
+                            <li><a href="/topics/networking/">Networking</a></li>
+                            <li><a href="/topics/phones/">Phones</a></li>
+                            <li><a href="/topics/printers/">Printers</a></li>
+                            <li><a href="/smart-home/" data-vanity-rewritten="true">Smart Home</a></li>
+                            <li><a href="/topics/software/">Software</a></li>
+                            <li><a href="/topics/storage/">Storage</a></li>
+                            <li><a href="/topics/tablets/">Tablets</a></li>
+                            <li><a href="/topics/tvs/">TVs</a></li>
+                            <li><a href="/topics/wearable-tech/">Wearable Tech</a></li>
+                                                            <li><a href="/deals/">Deals</a></li>
+                                <li><a href="/web-hosting/" data-vanity-rewritten="true">Web Hosting</a></li>
+                                                        <li><a href="/forums/">Forums</a></li>
+                        </ul><ul class="topItems forums" data-menu="reviews-forums"><li class="hed">Popular Forums</li>
+<li class="topItem">
+    <a href="/forums/computer-help/">
+            <h3>Computer Help</h3>
+    </a>
+</li>
+<li class="topItem">
+    <a href="/forums/computer-newbies/">
+            <h3>Computer Newbies</h3>
+    </a>
+</li>
+<li class="topItem">
+    <a href="/forums/laptops/">
+            <h3>Laptops</h3>
+    </a>
+</li>
+<li class="topItem">
+    <a href="/forums/phones/">
+            <h3>Phones</h3>
+    </a>
+</li>
+<li class="topItem">
+    <a href="/forums/tvs-home-theaters/">
+            <h3>TVs &amp; Home Theaters</h3>
+    </a>
+</li>
+<li class="topItem">
+    <a href="/forums/networking-wireless/">
+            <h3>Networking &amp; Wireless</h3>
+    </a>
+</li>
+<li class="topItem">
+    <a href="/forums/windows-7/">
+            <h3>Windows 7</h3>
+    </a>
+</li>
+<li class="topItem">
+    <a href="/forums/windows-10/">
+            <h3>Windows 10</h3>
+    </a>
+</li>
+<li class="topItem">
+    <a href="/forums/cameras/">
+            <h3>Cameras</h3>
+    </a>
+</li>
+<li class="topItem">
+    <a href="/forums/">
+            <h3>All Forums</h3>
+    </a>
+</li>                        </ul></div>
+                </nav><!--[if lt IE 9]>
+                <noscript></div></noscript>
+                <![endif]--></div>
+            </div>
+    <div class="menu single active" id="newsMenu" data-component="touchMenuHover">
+        <a class="menuHead" data-trigger="menu" href="/news/">News</a>
+        <div class="menuWrapper">
+            <!--[if lt IE 9]>
+            <noscript><div class="navTag"></noscript>
+            <![endif]-->
+            <nav><div class="navWrapper">
+                    <ul class="topCategories"><li class="hed">Top Categories</li>
+                        <li><a href="/apple/" data-vanity-rewritten="true">Apple</a></li>
+                        <li><a href="/topics/computers/" data-vanity-rewritten="true">Computers</a></li>
+                        <li><a href="/crave/" data-vanity-rewritten="true">Crave</a></li>
+                                                    <li><a href="/deals/">Deals</a></li>
+                                                <li><a href="/google/" data-vanity-rewritten="true">Google</a></li>
+                        <li><a href="/topics/internet/" data-vanity-rewritten="true">Internet</a></li>
+                        <li><a href="/tags/microsoft/">Microsoft</a></li>
+                        <li><a href="/topics/mobile/" data-vanity-rewritten="true">Mobile</a></li>
+                        <li><a href="/topics/photography/" data-vanity-rewritten="true">Photography</a></li>
+                        <li><a href="/topics/security/" data-vanity-rewritten="true">Security</a></li>
+                        <li><a href="/topics/sci-tech/" data-vanity-rewritten="true">Sci-Tech</a></li>
+                        <li><a href="/topics/tech-culture/" data-vanity-rewritten="true">Tech Culture</a></li>
+                        <li><a href="/topics/tech-industry/" data-vanity-rewritten="true">Tech Industry</a></li>
+                        <li><a href="/pictures/">Photo Galleries</a></li>
+                        <li><a href="/videos/cnet-news/" data-vanity-rewritten="true">Video</a></li>
+                        <li><a href="/forums/">Forums</a></li>
+                    </ul><ul class="topItems forums" data-menu="news-forums"><li class="hed">Popular Forums</li>
+<li class="topItem">
+    <a href="/forums/computer-help/">
+            <h3>Computer Help</h3>
+    </a>
+</li>
+<li class="topItem">
+    <a href="/forums/computer-newbies/">
+            <h3>Computer Newbies</h3>
+    </a>
+</li>
+<li class="topItem">
+    <a href="/forums/laptops/">
+            <h3>Laptops</h3>
+    </a>
+</li>
+<li class="topItem">
+    <a href="/forums/phones/">
+            <h3>Phones</h3>
+    </a>
+</li>
+<li class="topItem">
+    <a href="/forums/tvs-home-theaters/">
+            <h3>TVs &amp; Home Theaters</h3>
+    </a>
+</li>
+<li class="topItem">
+    <a href="/forums/networking-wireless/">
+            <h3>Networking &amp; Wireless</h3>
+    </a>
+</li>
+<li class="topItem">
+    <a href="/forums/windows-7/">
+            <h3>Windows 7</h3>
+    </a>
+</li>
+<li class="topItem">
+    <a href="/forums/windows-10/">
+            <h3>Windows 10</h3>
+    </a>
+</li>
+<li class="topItem">
+    <a href="/forums/cameras/">
+            <h3>Cameras</h3>
+    </a>
+</li>
+<li class="topItem">
+    <a href="/forums/">
+            <h3>All Forums</h3>
+    </a>
+</li>                    </ul></div>
+            </nav><!--[if lt IE 9]>
+            <noscript></div></noscript>
+            <![endif]--></div>
+    </div>
+    <div class="menu single" id="videoMenu" data-component="touchMenuHover">
+        <a class="menuHead" data-trigger="menu" href="/videos/">Video</a>
+        <div class="menuWrapper">
+        <!--[if lt IE 9]>
+        <noscript><div class="navTag"></noscript>
+        <![endif]-->
+        <nav><div class="navWrapper">
+                <ul class="topCategories"><li class="hed">Top Categories</li>
+                    <li><a href="/apple-byte/" data-vanity-rewritten="true">Apple Byte</a></li>
+                    <li><a href="/topics/car-tech/videos/" data-vanity-rewritten="true">Car Tech</a></li>
+                    <li><a href="/cnet-on-cars/" data-vanity-rewritten="true">CNET On Cars</a></li>
+                    <li><a href="/cnet-top-5/" data-vanity-rewritten="true">CNET Top 5</a></li>
+                    <li><a href="/cnet-update/" data-vanity-rewritten="true">CNET Update</a></li>
+                    <li><a href="/googlicious/" data-vanity-rewritten="true">Googlicious</a></li>
+                    <li><a href="/how-to/videos/" data-vanity-rewritten="true">How To</a></li>
+                    <li><a href="/netpicks/" data-vanity-rewritten="true">Netpicks</a></li>
+                    <li><a href="/next-big-thing/" data-vanity-rewritten="true">Next Big Thing</a></li>
+                    <li><a href="/videos/cnet-news/" data-vanity-rewritten="true">News</a></li>
+                    <li><a href="/topics/phones/videos/" data-vanity-rewritten="true">Phones</a></li>
+                    <li><a href="/prizefight/" data-vanity-rewritten="true">Prizefight</a></li>
+                    <li><a href="/topics/tablets/videos/" data-vanity-rewritten="true">Tablets</a></li>
+                    <li><a href="/tomorrow-daily/" data-vanity-rewritten="true">Tomorrow Daily</a></li>
+                    <li><a href="/carfection/" data-vanity-rewritten="true">XCAR</a></li>
+                    <li><a href="/cnet-podcasts/" data-vanity-rewritten="true">CNET Podcasts</a></li>
+                </ul></div>
+        </nav><!--[if lt IE 9]>
+        <noscript></div></noscript>
+        <![endif]--></div>
+    </div>
+    <div class="menu single" id="howtoMenu" data-component="touchMenuHover">
+        <a class="menuHead" data-trigger="menu" href="/how-to/">How To</a>
+        <div class="menuWrapper">
+            <!--[if lt IE 9]>
+            <noscript><div class="navTag"></noscript>
+            <![endif]-->
+            <nav><ul class="topCategories"><li class="hed">Top Categories</li>
+                    <li><a href="/topics/appliances/how-to/">Appliances</a></li>
+                    <li><a href="/topics/computers/how-to/">Computers</a></li>
+                    <li><a href="/topics/gaming/how-to/">Gaming</a></li>
+                    <li><a href="/topics/home-entertainment/how-to/">Home Entertainment</a></li>
+                    <li><a href="/topics/internet/how-to/">Internet</a></li>
+                    <li><a href="/topics/mobile-apps/how-to/">Mobile Apps</a></li>
+                    <li><a href="/topics/phones/how-to/">Phones</a></li>
+                    <li><a href="/topics/photography/how-to/">Photography</a></li>
+                    <li><a href="/topics/security/how-to/">Security</a></li>
+                    <li><a href="/topics/smart-home/how-to/">Smart Home</a></li>
+                    <li><a href="/topics/tablets/how-to/">Tablets</a></li>
+                    <li><a href="/topics/wearable-tech/how-to/">Wearable Tech</a></li>
+                    <li><a href="/forums/">Forums</a></li>
+                    <li><a href="/internet-speed-test/" data-vanity-rewritten="true">Speed Test</a></li>
+                </ul></nav><!--[if lt IE 9]>
+            <noscript></div></noscript>
+            <![endif]--></div>
+    </div>
+            <div class="menu single " id="dealsMenu" data-component="touchMenuHover">
+            <a class="menuHead" href="/deals/" data-vanity-rewritten="true">Deals</a>
+            <div class="menuWrapper">
+                <!--[if lt IE 9]>
+                <noscript><div class="navTag"></noscript>
+                <![endif]-->
+                <nav><ul class="topCategories"><li class="hed">Top Categories</li>
+                        <li><a href="/deals/" data-vanity-rewritten="true">All Deals</a></li>
+                        <li><a href="/cheapskate/" data-vanity-rewritten="true">Cheapskate</a></li>
+                        <li><a href="/holiday-gift-guide/under-50/" data-vanity-rewritten="true">Best tech under $50</a></li>
+                        <li><a href="/web-hosting/" data-vanity-rewritten="true">Web Hosting Deals</a></li>
+                    </ul></nav><!--[if lt IE 9]>
+                <noscript></div></noscript>
+                <![endif]--></div>
+        </div>
+        <div class="menu" id="download">
+        <a class="menuHead" href="http://download.cnet.com" data-user-action="legacy" data-component="trackDownload">Download</a>
+    </div>
+
+    
+                
+    
+<div id="headerLogin" class="menu single headerLogin" data-component="touchMenuHover">
+    <div class="menuHead" data-trigger="menu">
+        <span data-user-var="userName">Log In / Join</span>
+        <div class="user-avatar" data-user-var="avatar"></div>
+            </div>
+    <div class="menuWrapper">
+        <nav><ul class="topCategories logged-out"><li>
+                    <a data-user-show='{"action":"login","params":{"appId":376},"suppressReload":true}'>Log In to CNET</a>
+                </li>
+                <li class="social-login">
+                    <span class="sign-in-with">Sign In with</span>
+                                            <span class="social-site sa-facebook" data-user-social='{"socialSite":"facebook","action":"login","params":{"appId":376}}'>Facebook
+                                                </span>
+                                            <span class="social-site sa-googleplus" data-user-social='{"socialSite":"googleplus","action":"login","params":{"appId":376}}'>Googleplus
+                                                </span>
+                                            <span class="social-site sa-yahoo" data-user-social='{"socialSite":"yahoo","action":"login","params":{"appId":376}}'>Yahoo
+                                                </span>
+                                    </li>
+                <li>
+                    <a data-user-show='{"action":"register","params":{"appId":376}}'>Join CNET</a>
+                </li>
+                <li><a href="/user/join-cnet/">Member Benefits</a></li>
+            </ul><ul class="topCategories logged-in"><li class="social-login">
+                    <span>
+                                            <span class="social-site sa-facebook" data-user-link="facebook">
+                            Facebook
+                                                    </span>
+                                            <span class="social-site sa-googleplus" data-user-link="googleplus">
+                            Googleplus
+                                                    </span>
+                                            <span class="social-site sa-yahoo" data-user-link="yahoo">
+                            Yahoo
+                                                    </span>
+                                        </span>
+                </li>
+                <li><a data-user-var="profileLink" data-template="/profiles/__username__/">My Profile</a></li>
+                <li><a href="/forums/">Forums</a></li>
+                <li><a href="/user/logout/" data-user-action="logout" data-user-suppress-refresh="true">Log Out</a></li>
+            </ul></nav></div>
+</div>
+
+    
+<div class="menu single" id="editionMenu" data-component="touchMenuHover">
+    <span class="menuHead" data-trigger="menu"><span id="selectedEdition">US</span> Edition</span>
+    <div class="menuWrapper">
+        <!--[if lt IE 9]>
+        <noscript><div class="navTag"></noscript>
+        <![endif]-->
+        <nav><ul class="topCategories" data-component="editionToggler"><li class="hed">Other editions</li>
+                                                    <li><a data-edition="uk" href="/uk/news/facebook-wants-to-make-phone-numbers-obsolete-in-2016/">United Kingdom</a></li>
+                                                    <li><a data-edition="au" href="/au/news/facebook-wants-to-make-phone-numbers-obsolete-in-2016/">Australia</a></li>
+                                <li><a target="_blank" href="http://www.cnetnews.com.cn/">China</a></li>
+                <li><a target="_blank" href="http://www.cnetfrance.fr/">France</a></li>
+                <li><a target="_blank" href="http://www.cnet.de/">Germany</a></li>
+                <li><a target="_blank" href="http://japan.cnet.com/">Japan</a></li>
+                <li><a target="_blank" href="http://www.cnet.co.kr/">Korea</a></li>
+                                    <li><a data-edition="es" href="/es/">CNET en Español</a></li>
+                            </ul></nav><!--[if lt IE 9]>
+        <noscript></div></noscript>
+        <![endif]--></div>
+</div>
+</nav></div>
+        </div>
+    </header><div class="container">
+    <div class="row">
+                    <div class="row">
+        <div class="col-12">
+                                            <div class="row">
+                                    <div class="col-8">
+                                                    
+                                                        
+                                            
+
+
+        
+                        
+    <nav class="tocNav " section="tocNav" data-component="tocNav"><a class="rbLogo" href="/" section="rbLogo">CNET</a>
+        <div class="expand"><div></div></div>
+        <ul><li class="selected" data-asset-id="8f1a7b39-2d99-4565-a941-210c24ba8dd7" data-asset-title="Facebook wants to kill the phone number in 2016">
+                        
+                        <a href="/news/facebook-wants-to-make-phone-numbers-obsolete-in-2016/" data-toc-asset-options='{"id":"8f1a7b39-2d99-4565-a941-210c24ba8dd7","ajaxUrl":"\/news\/facebook-wants-to-make-phone-numbers-obsolete-in-2016\/xhr\/"}'>
+                                        
+                                <figure class="col-1 img"><img src="" class="lazy " alt="" height="70" width="70" data-original="        http://cnet4.cbsistatic.com/hub/i/r/2015/12/24/1b1a259c-6001-4557-a0cc-c13da9397d69/thumbnail/70x70/f44e71403d84e0e325671e32833e7a1e/fd-mark-zuckerberg-facebook-1187610x407.jpg"><noscript><img src="http://cnet4.cbsistatic.com/hub/i/r/2015/12/24/1b1a259c-6001-4557-a0cc-c13da9397d69/thumbnail/70x70/f44e71403d84e0e325671e32833e7a1e/fd-mark-zuckerberg-facebook-1187610x407.jpg" class="" alt="" height="70" width="70"></noscript></figure><div class="desc">
+                                <span class="hed">Facebook wants to kill the phone number in 2016</span>
+                            </div>
+                        </a>
+                    </li>
+                                            <li class="topStoriesHeading">
+                            <h5>Top Stories</h5>
+                        </li>
+                                                                                                        <li data-asset-id="9d73384a-aeaf-451e-8ea5-3ed5c2a9c2b2" data-asset-title="Goodbye, Moto(rola). Iconic brand name to be phased out">
+                        
+                        <a href="/news/goodbye-moto-rola-iconic-brand-name-to-be-phased-out/" data-toc-asset-options='{"id":"9d73384a-aeaf-451e-8ea5-3ed5c2a9c2b2","ajaxUrl":"\/news\/goodbye-moto-rola-iconic-brand-name-to-be-phased-out\/xhr\/"}'>
+                                        
+                                <figure class="col-1 img"><img src="" class="lazy " alt="" height="70" width="70" data-original="        http://cnet4.cbsistatic.com/hub/i/r/2015/11/13/f9494a80-bda6-4700-addd-42575b4e4508/thumbnail/70x70/7d6ead00c0e1310373521b22153dcf1a/droid-turbo-2-camara.jpg"><noscript><img src="http://cnet4.cbsistatic.com/hub/i/r/2015/11/13/f9494a80-bda6-4700-addd-42575b4e4508/thumbnail/70x70/7d6ead00c0e1310373521b22153dcf1a/droid-turbo-2-camara.jpg" class="" alt="" height="70" width="70"></noscript></figure><div class="desc">
+                                <span class="hed">Goodbye, Moto(rola). Iconic brand name to be phased out</span>
+                            </div>
+                        </a>
+                    </li>
+                                                                                                        <li data-asset-id="3c69cce2-6d24-4503-a009-98710bcf85b7" data-asset-title="Tougher security checks at CES? Not exactly">
+                        
+                        <a href="/news/tougher-security-checks-at-ces-not-exactly/" data-toc-asset-options='{"id":"3c69cce2-6d24-4503-a009-98710bcf85b7","ajaxUrl":"\/news\/tougher-security-checks-at-ces-not-exactly\/xhr\/"}'>
+                                        
+                                <figure class="col-1 img"><img src="" class="lazy " alt="" height="70" width="70" data-original="        http://cnet2.cbsistatic.com/hub/i/r/2016/01/07/4285a5a8-98db-48a9-8dbf-7ef0f287f798/thumbnail/70x70/8e069594dec203a38b7dcc5ef06fa164/scottevest-supplies.jpg"><noscript><img src="http://cnet2.cbsistatic.com/hub/i/r/2016/01/07/4285a5a8-98db-48a9-8dbf-7ef0f287f798/thumbnail/70x70/8e069594dec203a38b7dcc5ef06fa164/scottevest-supplies.jpg" class="" alt="" height="70" width="70"></noscript></figure><div class="desc">
+                                <span class="hed">Tougher security checks at CES? Not exactly</span>
+                            </div>
+                        </a>
+                    </li>
+                                                                                                        <li data-asset-id="f8588981-5260-41d7-acf4-0bfc92fb85fd" data-asset-title="The clothes at the CES fashion show actually looked pretty normal">
+                        
+                        <a href="/news/the-clothes-at-the-ces-fashion-show-actually-looked-pretty-normal/" data-toc-asset-options='{"id":"f8588981-5260-41d7-acf4-0bfc92fb85fd","ajaxUrl":"\/news\/the-clothes-at-the-ces-fashion-show-actually-looked-pretty-normal\/xhr\/"}'>
+                                        
+                                <figure class="col-1 img"><img src="" class="lazy " alt="" height="70" width="70" data-original="        http://cnet2.cbsistatic.com/hub/i/r/2016/01/07/f2066d7a-1447-41d7-94a4-780682d358db/thumbnail/70x70/fd2e8defdc29ffdceefb106dcf69db3b/img0327.jpg"><noscript><img src="http://cnet2.cbsistatic.com/hub/i/r/2016/01/07/f2066d7a-1447-41d7-94a4-780682d358db/thumbnail/70x70/fd2e8defdc29ffdceefb106dcf69db3b/img0327.jpg" class="" alt="" height="70" width="70"></noscript></figure><div class="desc">
+                                <span class="hed">The clothes at the CES fashion show actually looked pretty normal</span>
+                            </div>
+                        </a>
+                    </li>
+                                                                                                        <li data-asset-id="81961759-b90d-430c-b097-ebf53d08ebbf" data-asset-title="New Chinese phones: Cheaper and good enough">
+                        
+                        <a href="/news/new-chinese-phones-cheaper-and-good-enough/" data-toc-asset-options='{"id":"81961759-b90d-430c-b097-ebf53d08ebbf","ajaxUrl":"\/news\/new-chinese-phones-cheaper-and-good-enough\/xhr\/"}'>
+                                        
+                                <figure class="col-1 img"><img src="" class="lazy " alt="" height="70" width="70" data-original="        http://cnet4.cbsistatic.com/hub/i/r/2016/01/04/bede481a-315f-4ec9-b266-15d0c1d752f0/thumbnail/70x70/6e2fa4229acc6e99d218c05f1213b770/alcatel-onetouch-fierce-xl-005.jpg"><noscript><img src="http://cnet4.cbsistatic.com/hub/i/r/2016/01/04/bede481a-315f-4ec9-b266-15d0c1d752f0/thumbnail/70x70/6e2fa4229acc6e99d218c05f1213b770/alcatel-onetouch-fierce-xl-005.jpg" class="" alt="" height="70" width="70"></noscript></figure><div class="desc">
+                                <span class="hed">New Chinese phones: Cheaper and good enough</span>
+                            </div>
+                        </a>
+                    </li>
+                                                                                                        <li data-asset-id="86dde1d8-888b-4e03-b9d4-983c97fb1189" data-asset-title="Why Oculus Rift pricing isn't what you thought it'd be">
+                        
+                        <a href="/news/why-oculus-rift-pricing-isnt-what-you-thought-itd-be/" data-toc-asset-options='{"id":"86dde1d8-888b-4e03-b9d4-983c97fb1189","ajaxUrl":"\/news\/why-oculus-rift-pricing-isnt-what-you-thought-itd-be\/xhr\/"}'>
+                                        
+                                <figure class="col-1 img"><img src="" class="lazy " alt="" height="70" width="70" data-original="        http://cnet1.cbsistatic.com/hub/i/r/2015/10/13/089805e2-8d91-48ec-8cd2-10f17dea0894/thumbnail/70x70/b71bfc23d851e8b78af5386a3ee8daf3/oculus-rift-5.jpg"><noscript><img src="http://cnet1.cbsistatic.com/hub/i/r/2015/10/13/089805e2-8d91-48ec-8cd2-10f17dea0894/thumbnail/70x70/b71bfc23d851e8b78af5386a3ee8daf3/oculus-rift-5.jpg" class="" alt="" height="70" width="70"></noscript></figure><div class="desc">
+                                <span class="hed">Why Oculus Rift pricing isn't what you thought it'd be</span>
+                            </div>
+                        </a>
+                    </li>
+                                                                                                        <li data-asset-id="b72d6782-c85b-4785-bce9-7e627d5db8d0" data-asset-title="Coolest wearables at CES 2016 are hidden in Samsung's booth">
+                        
+                        <a href="/news/the-coolest-wearables-at-ces-2016-are-hidden-in-samsungs-booth/" data-toc-asset-options='{"id":"b72d6782-c85b-4785-bce9-7e627d5db8d0","ajaxUrl":"\/news\/the-coolest-wearables-at-ces-2016-are-hidden-in-samsungs-booth\/xhr\/"}'>
+                                        
+                                <figure class="col-1 img"><img src="" class="lazy " alt="" height="70" width="70" data-original="        http://cnet3.cbsistatic.com/hub/i/r/2016/01/07/5ed89544-1ba1-401b-aea5-e6535186b2d6/thumbnail/70x70/b165b4af3bcd55ceefa1edae8dd2d5e5/samsung-smart-suit-office-mode.jpg"><noscript><img src="http://cnet3.cbsistatic.com/hub/i/r/2016/01/07/5ed89544-1ba1-401b-aea5-e6535186b2d6/thumbnail/70x70/b165b4af3bcd55ceefa1edae8dd2d5e5/samsung-smart-suit-office-mode.jpg" class="" alt="" height="70" width="70"></noscript></figure><div class="desc">
+                                <span class="hed">Coolest wearables at CES 2016 are hidden in Samsung's booth</span>
+                            </div>
+                        </a>
+                    </li>
+                                                                                                        <li data-asset-id="e222cc4d-0f65-4a3a-a303-045093204b70" data-asset-title="This octocopter wants to fly you at 60 mph">
+                        
+                        <a href="/news/this-octocopter-wants-to-fly-you-at-60-mph/" data-toc-asset-options='{"id":"e222cc4d-0f65-4a3a-a303-045093204b70","ajaxUrl":"\/news\/this-octocopter-wants-to-fly-you-at-60-mph\/xhr\/"}'>
+                                        
+                                <figure class="col-1 img"><img src="" class="lazy " alt="" height="70" width="70" data-original="        http://cnet2.cbsistatic.com/hub/i/r/2016/01/06/fa05ee5a-2b6d-46be-a048-f947cb6c3c86/thumbnail/70x70/0f0756311bd0f9825fc3dc9333ba901c/ehang-184-4.jpg"><noscript><img src="http://cnet2.cbsistatic.com/hub/i/r/2016/01/06/fa05ee5a-2b6d-46be-a048-f947cb6c3c86/thumbnail/70x70/0f0756311bd0f9825fc3dc9333ba901c/ehang-184-4.jpg" class="" alt="" height="70" width="70"></noscript></figure><div class="desc">
+                                <span class="hed">This octocopter wants to fly you at 60 mph</span>
+                            </div>
+                        </a>
+                    </li>
+                                                                                                        <li data-asset-id="f4f80397-895e-450b-8614-1f99300f39eb" data-asset-title="Netflix is cool with you sharing your account">
+                        
+                        <a href="/news/netflix-is-cool-with-you-sharing-your-account/" data-toc-asset-options='{"id":"f4f80397-895e-450b-8614-1f99300f39eb","ajaxUrl":"\/news\/netflix-is-cool-with-you-sharing-your-account\/xhr\/"}'>
+                                        
+                                <figure class="col-1 img"><img src="" class="lazy " alt="" height="70" width="70" data-original="        http://cnet1.cbsistatic.com/hub/i/r/2014/07/30/be386e72-864f-4ff5-b121-106d7920d2ff/thumbnail/70x70/4483482235b1e9a1f2575b67086d2239/netflix-corporate-headquarters-04.jpg"><noscript><img src="http://cnet1.cbsistatic.com/hub/i/r/2014/07/30/be386e72-864f-4ff5-b121-106d7920d2ff/thumbnail/70x70/4483482235b1e9a1f2575b67086d2239/netflix-corporate-headquarters-04.jpg" class="" alt="" height="70" width="70"></noscript></figure><div class="desc">
+                                <span class="hed">Netflix is cool with you sharing your account</span>
+                            </div>
+                        </a>
+                    </li>
+                                                                                                        <li data-asset-id="88c297fa-888d-414e-9e40-125200668d98" data-asset-title="BlackBerry going all-in on Android phones">
+                        
+                        <a href="/news/blackberry-going-all-in-on-android-phones-for-now/" data-toc-asset-options='{"id":"88c297fa-888d-414e-9e40-125200668d98","ajaxUrl":"\/news\/blackberry-going-all-in-on-android-phones-for-now\/xhr\/"}'>
+                                        
+                                <figure class="col-1 img"><img src="" class="lazy " alt="" height="70" width="70" data-original="        http://cnet2.cbsistatic.com/hub/i/r/2016/01/07/3fe6f431-e7aa-415b-9f86-b7eb90cf8bb7/thumbnail/70x70/ddd75ede747b7b1295b55dc928269abc/corbis-42-57100751.jpg"><noscript><img src="http://cnet2.cbsistatic.com/hub/i/r/2016/01/07/3fe6f431-e7aa-415b-9f86-b7eb90cf8bb7/thumbnail/70x70/ddd75ede747b7b1295b55dc928269abc/corbis-42-57100751.jpg" class="" alt="" height="70" width="70"></noscript></figure><div class="desc">
+                                <span class="hed">BlackBerry going all-in on Android phones</span>
+                            </div>
+                        </a>
+                    </li>
+                                                                                                        <li data-asset-id="8c0205ff-e545-46a6-8ca9-16fc55646a96" data-asset-title="Your robot double is ready to roll">
+                        
+                        <a href="/news/your-robot-double-is-ready-to-roll/" data-toc-asset-options='{"id":"8c0205ff-e545-46a6-8ca9-16fc55646a96","ajaxUrl":"\/news\/your-robot-double-is-ready-to-roll\/xhr\/"}'>
+                                        
+                                <figure class="col-1 img"><img src="" class="lazy " alt="" height="70" width="70" data-original="        http://cnet1.cbsistatic.com/hub/i/r/2016/01/06/57659907-981c-4675-891e-3547a037f886/thumbnail/70x70/cb1707fdd5a45b57e7fef3b9d2f452d4/double-robotics-lateral-stability.jpg"><noscript><img src="http://cnet1.cbsistatic.com/hub/i/r/2016/01/06/57659907-981c-4675-891e-3547a037f886/thumbnail/70x70/cb1707fdd5a45b57e7fef3b9d2f452d4/double-robotics-lateral-stability.jpg" class="" alt="" height="70" width="70"></noscript></figure><div class="desc">
+                                <span class="hed">Your robot double is ready to roll</span>
+                            </div>
+                        </a>
+                    </li>
+                                                                                                        <li data-asset-id="54ec5c59-04df-4032-976b-735f8996596d" data-asset-title="What's not to like? T-Mobile makes the case for Binge On">
+                        
+                        <a href="/news/whats-not-to-like-t-mobile-makes-the-case-for-binge-on/" data-toc-asset-options='{"id":"54ec5c59-04df-4032-976b-735f8996596d","ajaxUrl":"\/news\/whats-not-to-like-t-mobile-makes-the-case-for-binge-on\/xhr\/"}'>
+                                        
+                                <figure class="col-1 img"><img src="" class="lazy " alt="" height="70" width="70" data-original="        http://cnet4.cbsistatic.com/hub/i/r/2015/11/10/a69c6711-ae5a-457b-af31-245ceaee184d/thumbnail/70x70/8c21010ff5a3c4d90cc76f3c4660021c/tmobile-johnlegere-uncarrier10.png"><noscript><img src="http://cnet4.cbsistatic.com/hub/i/r/2015/11/10/a69c6711-ae5a-457b-af31-245ceaee184d/thumbnail/70x70/8c21010ff5a3c4d90cc76f3c4660021c/tmobile-johnlegere-uncarrier10.png" class="" alt="" height="70" width="70"></noscript></figure><div class="desc">
+                                <span class="hed">What's not to like? T-Mobile makes the case for Binge On</span>
+                            </div>
+                        </a>
+                    </li>
+                                                                            </ul><div id="native-toc-568f3b88904e2" class="ad-native-toc" data-ad="native-toc">
+    <script>
+        window.console && console.log && console.log("ADS: queuing native-toc-568f3b88904e2 for display");
+        var cbsiGptDivIds = cbsiGptDivIds || [];
+        cbsiGptDivIds.push("native-toc-568f3b88904e2");
+    </script></div>
+                </nav></div>
+                                </div>
+                        </div>
+            </div>
+        </div>
+</div>
+
+
+                            
+                                    <div id="intromercial-568f3b88904e2" class="ad-intromercial" data-ad="intromercial">
+    <script>
+        window.console && console.log && console.log("ADS: queuing intromercial-568f3b88904e2 for display");
+        var cbsiGptDivIds = cbsiGptDivIds || [];
+        cbsiGptDivIds.push("intromercial-568f3b88904e2");
+    </script></div>
+            
+                    <div id="rbContent" class="" data-component="magnet">
+                <div class="pageContainer " data-container-asset-id="8f1a7b39-2d99-4565-a941-210c24ba8dd7" data-teads-num="1">
+        
+        <div class="container"><div class="row"><div class="col-8"><ul class="breadcrumb" section="bc"><li><a href="/">CNET</a><span class="divider"></span></li><li><a href="/topics/tech-culture/">Tech Culture</a><span class="divider"></span></li><li>Facebook wants to kill the phone number in 2016</li></ul></div></div><div class="articleHead"><h1>Facebook wants to kill the phone number in 2016</h1><p class="article-dek">Technically Incorrect: The head of Facebook's Messenger chat service believes no one needs a phone number if they have, well, Messenger.</p><div class="authorInfo article-byline"><span class="byText">by</span><a rel="author" class="author" href="http://www.cnet.com/profiles/chrismatyszczyk/">
+                            Chris Matyszczyk
+                        </a><span class="asset-twitter" data-component="socialTracking" data-social-tracking-options='{"socialSite":"twitter"}'><a class="twitterIcon" target="_blank" href="https://twitter.com/intent/user?screen_name=ChrisMatyszczyk"><div class="twitter"><div class="icon icon-twitter-red"></div></div></a><a class="twitterHandle" target="_blank" href="https://twitter.com/intent/user?screen_name=ChrisMatyszczyk">@ChrisMatyszczyk</a></span><span> / </span><time><span class="formattedDate">January 7, 2016</span><span class="formattedTime">8:30 PM PST</span></time></div></div></div><div id="rbSkin" data-article-num="1"><span id="adSkinLeft"></span><span id="adSkinRight"></span><div id="skin-568f3b88904e2" class="ad-skin" data-ad="skin"><script>
+        window.console && console.log && console.log("ADS: queuing skin-568f3b88904e2 for display");
+        var cbsiGptDivIds = cbsiGptDivIds || [];
+        cbsiGptDivIds.push("skin-568f3b88904e2");
+    </script></div><div class="sticky-leader" data-component="stickyLeader"><div id="leader-top-568f3b88904e2" class="ad-leader-top" data-ad="leader-top"><script>
+        window.console && console.log && console.log("ADS: queuing leader-top-568f3b88904e2 for display");
+        var cbsiGptDivIds = cbsiGptDivIds || [];
+        cbsiGptDivIds.push("leader-top-568f3b88904e2");
+    </script></div></div><div class="articleContent container  "><div class="container"><div class="row"><div class="row"><div class="col-12"><div class="row"><div class="col-8"></div><div class="col-4"></div></div></div></div><div class="row"><div class="col-12"><article itemscope itemtype="http://schema.org/Article" id="article-body" section="articleBody"><meta itemprop="thumbnailUrl" content="http://cnet4.cbsistatic.com/hub/i/r/2015/12/24/1b1a259c-6001-4557-a0cc-c13da9397d69/thumbnail/770x433/cfce5e2c14aa9915a9e08c3cfbf9fd0f/fd-mark-zuckerberg-facebook-1187610x407.jpg"><meta itemprop="keywords" content="Technically Incorrect, Tech Culture, Internet, Facebook"><meta itemprop="url" content="http://www.cnet.com/news/facebook-wants-to-make-phone-numbers-obsolete-in-2016/"><meta itemprop="headline" content="Facebook wants to kill the phone number in 2016"><meta itemprop="description" content="Technically Incorrect: The head of Facebook's Messenger chat service believes no one needs a phone number if they have, well, Messenger."><div class="col-2"><div id="article-info" class="sideBar article-byline" section="author"><h6><a href="/topics/tech-culture/">Tech Culture</a></h6><time class="timeStamp" itemprop="datePublished" content="2016-01-07T20:30:03-0800"><span class="formattedDate">January 7, 2016</span><span class="formattedTime">8:30 PM PST</span></time><ul><li itemscope itemtype="http://schema.org/Person"><div class="col-1 profilePic articleProfilePic"><a itemprop="name"><figure class=" img"><img src="http://cnet2.cbsistatic.com/hub/i/r/2011/10/09/ca43f6eb-eacb-11e2-8339-d4ae52e62bcc/thumbnail/70x70/09f558384b489ad2767cb9665f65cf1d/headshots_Chris_Matyszczyk.jpg" class="" alt="Chris Matyszczyk mugshot" height="70" width="70"></figure></a></div><div class="col-2 profileInfo articleProfileInfo"><span class="byText">by</span><a itemprop="name" rel="author" class="author" href="http://www.cnet.com/profiles/chrismatyszczyk/">
+                                    Chris Matyszczyk
+                                </a><span class="asset-twitter" data-component="socialTracking" data-social-tracking-options='{"socialSite":"twitter"}'><a class="twitterIcon" target="_blank" href="https://twitter.com/intent/user?screen_name=ChrisMatyszczyk"><div class="twitter"><div class="icon icon-twitter-red"></div></div></a><a class="twitterHandle" target="_blank" href="https://twitter.com/intent/user?screen_name=ChrisMatyszczyk">@ChrisMatyszczyk</a></span></div></li></ul></div></div><div class="col-10 article-main-body row" itemprop="articleBody" data-use-autolinker="true" data-component="lazyloadImages"><div class="sharebarRedesign inline-view atTop" section="topSharebar" data-component="sharebar" data-sharebar-options='{"title":"Facebook wants to kill the phone number in 2016","description":"Technically Incorrect: The head of Facebook\u0027s Messenger chat service believes no one needs a phone number if they have, well, Messenger.","url":"http:\/\/www.cnet.com\/news\/facebook-wants-to-make-phone-numbers-obsolete-in-2016\/","popupWidth":780,"popupHeight":510,"data":{"media":"http:\/\/cnet3.cbsistatic.com\/hub\/i\/r\/2015\/12\/24\/1b1a259c-6001-4557-a0cc-c13da9397d69\/thumbnail\/170x128\/81d81b6e58a04c4272607bb49344a828\/fd-mark-zuckerberg-facebook-1187610x407.jpg"}}'><div class="sharebarWrapper "><ul class="sharebarContainer"><li class="share-button sharebarRedesignButton"><a data-popup="facebook"><div class="social-button-small-redesign facebook"><div class="icon icon-small-facebook">facebook</div></div></a></li><li class="share-button sharebarRedesignButton"><a data-popup="twitter"><div class="social-button-small-redesign twitter"><div class="icon icon-small-twitter">twitter</div></div></a></li><li class="share-button sharebarRedesignButton"><a data-popup="linkedin"><div class="social-button-small-redesign linkedin"><div class="icon icon-small-linkedin">linkedin</div></div></a></li><li class="share-button sharebarRedesignButton"><a data-popup="googleplus"><div class="social-button-small-redesign googleplus"><div class="icon icon-small-googleplus">googleplus</div></div></a></li><li class="share-button sharebarRedesignButton"><a data-popup="email"><div class="social-button-small-redesign email"><div class="icon icon-small-email">email</div></div></a></li><li class="share-button sharebarRedesignButton comment-count-redesign" data-livefyre-count-redesign="8f1a7b39-2d99-4565-a941-210c24ba8dd7"><a href="#comments"><div class="social-button-small-redesign comments"><div class="icon icon-small-comments">comments</div></div></a></li><li class="share-button sharebarRedesignButton moreButton" data-component="touchMenuHover"><span class="moreWrap"><a><div class="social-button-small-redesign more"><div class="icon icon-small-more">more</div></div></a></span><div class="hoverWrap"><ul><li class="share-button sharebarRedesignButton"><a data-popup="reddit"><div class="social-button-small-redesign reddit"><div class="icon icon-small-reddit">reddit</div></div></a></li><li class="share-button sharebarRedesignButton"><a data-popup="pinterest"><div class="social-button-small-redesign pinterest"><div class="icon icon-small-pinterest">pinterest</div></div></a></li><li class="share-button sharebarRedesignButton"><a data-popup="tumblr"><div class="social-button-small-redesign tumblr"><div class="icon icon-small-tumblr">tumblr</div></div></a></li></ul></div></li></ul></div><div id="sponsor_ad" class="sponsor"><div id="social-logo-bottom-568f3b88904e2" class="ad-social-logo-bottom" data-ad="social-logo-bottom"><script>
+        window.console && console.log && console.log("ADS: queuing social-logo-bottom-568f3b88904e2 for display");
+        var cbsiGptDivIds = cbsiGptDivIds || [];
+        cbsiGptDivIds.push("social-logo-bottom-568f3b88904e2");
+    </script>Only text that should remain here</div></div></div><div class="col-8"><div id="mpu-plus-top-568f3b88904e2" class="ad-mpu-plus-top" data-ad="mpu-plus-top"><script>
+        window.console && console.log && console.log("ADS: queuing mpu-plus-top-568f3b88904e2 for display");
+        var cbsiGptDivIds = cbsiGptDivIds || [];
+        cbsiGptDivIds.push("mpu-plus-top-568f3b88904e2");
+    </script></div><p><em>Technically Incorrect offers a slightly twisted take on the tech that's taken over our lives.</em></p><hr><figure class="image image-medium
+                pull-none  col-6
+                " section="shortcodeImage"><span class="imageContainer"><img src="http://cnet1.cbsistatic.com/hub/i/r/2015/12/24/1b1a259c-6001-4557-a0cc-c13da9397d69/resize/570xauto/98a6b1f6db66da03bda28c6c3923c2ac/fd-mark-zuckerberg-facebook-1187610x407.jpg" class="" alt="fd-mark-zuckerberg-facebook-1187610x407.jpg" itemprop="image" height="auto" width="570"></span><figcaption><span class="caption"><p>Zuckerberg vs the phone number. Quite a fight.</p></span><span class="credit">
+                                            CNET
+                                        </span></figcaption></figure><p>I'm going to take a wild guess here.</p><p>You know your own phone number, but you hardly know anyone else's.</p><p>Once you've put someone's contact details into your phone, you never again consider what those details actually are. If you need to contact someone, you click on their name. That's all it takes.</p><p>Now, on a pristine white horse, comes Facebook wanting to eradicate phone numbers altogether. </p><div id="inpage-video-top-568f3b88904e2" class="ad-inpage-video-top" data-ad="inpage-video-top"><script>
+        window.console && console.log && console.log("ADS: queuing inpage-video-top-568f3b88904e2 for display");
+        var cbsiGptDivIds = cbsiGptDivIds || [];
+        cbsiGptDivIds.push("inpage-video-top-568f3b88904e2");
+    </script></div><p>The company's VP of Messaging Products, David Marcus, has <a href="https://newsroom.fb.com/news/2016/01/heres-to-2016-with-messenger/" target="_blank" data-component="externalLink">penned something</a> that's less of a blog post and more of a rallying cry for the modern way to do everything. Incredibly, this modern way is called Facebook. Specifically, Facebook Messenger.</p><p>He writes that toward the end of 2015, more than 800 million people were using Messenger. </p><p>"We made Messenger blazing fast, we introduced video calling, the ability to customize conversations with colors, nicknames and emojis and with Businesses on Messenger, we introduced a new way for businesses to engage their customers by providing them with a delightful, personal experience," he says.</p><p>Yes, where were we when we couldn't customize conversation with emojis? We were stuck using mouths, vocal chords and words. How primitive we were then.</p><p>Messenger has made this so much more individual, immersive and just downright 2016. </p><p>"We added helpful information at the top of new conversations so you always have the context of who you're talking to if it's not a Facebook friend, and with Message Requests, we built the foundational step of enabling you to find and talk to anyone," Marcus insists. </p><p>There are few problems worse than not being able to parse your Facebook friends (to whom you are likely to be so very close) and, well, other human beings.</p><p>Facebook's aggression, though, is aimed hard at the enemy of all that is Facebook: the phone number. In a paragraph headlined "The Disappearance Of The Phone Number," Marcus sniffs at flip phones and suggests mere texting is also the activity of the backward. </p><p>Messenger offers "so much more," he writes. "As well as texting, you can send "stickers, photos, videos, voice clips, GIFs, your location, and money to people."</p><p>I must confess I've never thought of sending money to people via Facebook. My prehistoric senses wouldn't quite trust it. </p><div class="shortcode related-links float_left" section="shortcodeRelatedLinks">
+            <h6>
+                            <span>More Technically Incorrect</span>
+                    </h6>
+        <ul><li>
+                                                                                <a href="http://www.cnet.com/news/ces-unveiled-the-naked-truth/">CES Unveiled: Your gadgets just aren't smart enough</a>
+                                            </li>
+                                    <li>
+                                                                                <a href="http://www.cnet.com/news/club-doorman-wears-gopro-shows-us-what-were-really-like/">Club doorman wears GoPro, shows us what we're really like</a>
+                                            </li>
+                                    <li>
+                                                                                <a href="http://www.cnet.com/news/hillary-clinton-believes-aliens-may-well-have-paid-us-a-visit/">Hillary Clinton says aliens may have paid us a visit</a>
+                                            </li>
+                                    </ul></div><p>It's all very well the company wanting to be the de facto Internet -- especially<a href="http://www.cnet.com/news/facebooks-freebie-internet-service-under-fire-in-india/" target="_blank"> in places like India</a>. But drier minds and eyes might wonder whether the wish to eradicate phone numbers has something to do with not everyone having yet given Facebook their phone numbers. </p><p>The company pestered me for a long time about it -- in the guise of needing an extra piece of information for "security." </p><div id="mpu-bottom-568f3b88904e2" class="ad-mpu-bottom" data-ad="mpu-bottom"><script>
+        window.console && console.log && console.log("ADS: queuing mpu-bottom-568f3b88904e2 for display");
+        var cbsiGptDivIds = cbsiGptDivIds || [];
+        cbsiGptDivIds.push("mpu-bottom-568f3b88904e2");
+    </script></div><p>Marcus, though, insists that you don't even need to be on Facebook to use Messenger. One assumes, then, that it's more of a gateway feature. </p><p>It may well be that phone numbers will disappear. Some, though, might wonder how making their disappearance a company theme squares with what Marcus claims is the ultimate goal: "It's all about delight."</p><p>This one's easy. It's all about delighting Facebook.</p></div><footer><div class="row collections-topics-and-tags" section="tag"><dl><dt><b>Tags: </b></dt><dd><a href="/technically-incorrect/" data-vanity-rewritten="true">Technically Incorrect</a></dd><dd><a href="/topics/tech-culture/">Tech Culture</a></dd><dd><a href="/topics/internet/">Internet</a></dd><dd><a href="/tags/facebook/">Facebook</a></dd></dl></div></footer></div></article><div class="row"><div class="col-8 subfooter"><div class="collapsible hidden" data-component="toggle" data-toggle-options='{"openOnInit":false}'><!-- General comments --><div id="livefyreContainer-8f1a7b39-2d99-4565-a941-210c24ba8dd7" class="livefyreContainer"><a name="comments" class="livefyreJumpTarget"> </a><h3><span>Discuss: Facebook wants to kill the phone number in...</span></h3><div id="livefyreConversation-8f1a7b39-2d99-4565-a941-210c24ba8dd7" class="livefyreConversation" data-component="livefyreConversation" data-livefyre-conversation-options='{"urlUserToken":"\/livefyre\/user-token\/","globalConfig":{"network":"cnet.fyre.co","stringOverrides":[]},"commentStreamConfigs":{"initialNumVisible":5,"maxVisible":5,"siteId":311569,"articleId":"8f1a7b39-2d99-4565-a941-210c24ba8dd7","el":"livefyreConversation-8f1a7b39-2d99-4565-a941-210c24ba8dd7","checksum":"0cf283f9b13c78009846721a0f7bee82","collectionMeta":"eyJ0eXAiOiJqd3QiLCJhbGciOiJIUzI1NiJ9.eyJ0aXRsZSI6IkZhY2Vib29rIHdhbnRzIHRvIGtpbGwgdGhlIHBob25lIG51bWJlciBpbiAyMDE2IiwidXJsIjoiaHR0cDpcL1wvd3d3LmNuZXQuY29tXC9uZXdzXC9mYWNlYm9vay13YW50cy10by1tYWtlLXBob25lLW51bWJlcnMtb2Jzb2xldGUtaW4tMjAxNlwvIiwiY2hlY2tzdW0iOiIwY2YyODNmOWIxM2M3ODAwOTg0NjcyMWEwZjdiZWU4MiIsImFydGljbGVJZCI6IjhmMWE3YjM5LTJkOTktNDU2NS1hOTQxLTIxMGMyNGJhOGRkNyJ9.LspCox3U7dZQALYmcw20PbjYloiI6q9CAl0zfCiuMC8"},"profileURL":"\/profiles\/%7Busername%7D\/","edition":"us"}'></div><div class="livefyreFooter"><p class="livefyrePowered">Conversation powered by Livefyre</p></div></div><div class="toggleComments" data-item="trigger"><span class="showComments">Show Comments</span><span class="hideComments">Hide Comments</span></div></div><div class="fixate-bottom-anchor"></div></div></div><div class="row"><div class="col-2"></div><div class="col-8 videoPromoContainer"><div class="videoWrapper"><div section="videoPromo" class="videoPromo" data-component="productReviewVideo" data-product-review-video-options='{"videoParent":"[data-container-asset-id=8f1a7b39-2d99-4565-a941-210c24ba8dd7] .videoPromo","closeButtonParent":"[data-container-asset-id=8f1a7b39-2d99-4565-a941-210c24ba8dd7] .videoPromo"}'><h6><span>Featured Video</span></h6><div class="cnetVideoPlayer hide" data-tpbaseurl="http://cnet2.cbsistatic.com/fly/bundles/cnetmpxpdk/pdk" data-component="cnetVideo" data-cnet-video-options='{"video":null,"videos":[{"id":"1b88f7b8-6053-43eb-871c-6a92d45c16e2","title":"Intel\u0027s Compute Stick adds ports and power","description":"Turn any TV or monitor into a mini-desktop with this stick-sized PC.","slug":"intels-compute-stick-adds-ports-and-power","chapters":"","mpxId":"597132355992","mpxRefId":"6ll9yDuOJ_q3pbJiUQIM4bFHWdj8H6da","primaryTopic":{"id":""},"author":{"id":"937867c4-8176-11e2-9d12-0018fe8a00b0","firstName":"Dan","lastName":"Ackerman"},"primaryCollection":{"id":"eecc306e-81eb-45e3-bfd5-e085d3bd14c0","title":"CES 2016"},"duration":86,"files":{"hds":"G1VE6h9NuPvv","wifi":"KqzjtuXw1n0M","hls_tablet":"lE5T6OVorhtD","3g":"VoK5vUUjhiF2","hls_phone":"xcR20BZr_Y2c"},"isVertical":false},{"id":"5dfe3da1-7967-4dfb-a66e-9da8a5d8d43e","title":"CES 2016, day two: Nick Cannon, iJustine and Joey Graceffa (Tomorrow Daily 294)","description":"Jeff and Ashley welcome Nick Cannon, iJustine, and Joey Graceffa to the stage to discuss all things CES, including drones, self-driving cars and more.","slug":"ces-2016-day-2-nick-cannon-ijustine-and-joey-graceffa-tomorrow-daily-294","chapters":"","mpxId":598099011949,"mpxRefId":"8YBN_KTwxfvKuwONNg_WCyWE_0lUoPqN","primaryTopic":{"id":""},"author":{"id":"b163284d-6b73-44fc-b3e6-3da66c392d40","firstName":"Ashley","lastName":"Esqueda"},"primaryCollection":{"id":"eecc306e-81eb-45e3-bfd5-e085d3bd14c0","title":["Tomorrow Daily","CES 2016"]},"duration":1143,"files":{"hds":"iJBOe_4Ty_wu","hls_tablet":"WEgV0TKMhLGD","3g":"OqnjrpLlURIw","hls_phone":"Pxm_7ZnHxEha","wifi":"R8uca64gtJd0"},"isVertical":false},{"id":"89fcb6ff-b64c-4773-85ef-16a7376ed1da","title":"Up close with Naughty America\u0027s VR adult entertainment demo","description":"CNET\u0027s Brian Tong puts on a virtual-reality headset and gets a demo of an adult entertainment experience from Naughty America.","slug":"up-close-with-naughty-americas-vr-adult-entertainment-demo","chapters":"","mpxId":598030915842,"mpxRefId":"S6y6B0BHKKIj_aKmP8GxnZ1cMMb1Kxk5","primaryTopic":{"id":""},"author":{"id":"02167fb4-8176-11e2-9d12-0018fe8a00b0","firstName":"Brian","lastName":"Tong"},"primaryCollection":{"id":"9cb3924e-3329-4129-8f74-ea77f2be3946","title":["CES 2016","Must-See CES 2016"]},"duration":517,"files":{"hds":"W6P0rv0FmNKA","hls_phone":"ZyoXqvyoeie4","3g":"ri3rALDER5p2","wifi":"Z9i7ZtuokbK_","hls_tablet":"U4oRm5Z0TifU"},"isVertical":false},{"id":"1f0e25b3-e807-4e02-8b70-34f83fdd8579","title":"High-tech upgrades for home appliances","description":"In the future, your washer and dryer may be just one machine and you won\u0027t have to open your fridge to see what\u0027s inside. CNET\u0027s Kara Tsuboi is in Las Vegas for CES 2016 to show us how appliances are getting cutting-edge improvements.","slug":"high-tech-upgrades-for-home-appliances","chapters":"","mpxId":598023747792,"mpxRefId":"lJTE9VDHJeDEjWoEVFCG0f2rSqWNGeFd","primaryTopic":{"id":""},"author":{"id":"a7c7a8c6-8175-11e2-9d12-0018fe8a00b0","firstName":"Kara","lastName":"Tsuboi"},"primaryCollection":{"id":"eecc306e-81eb-45e3-bfd5-e085d3bd14c0","title":["CES 2016","CNET News Video"]},"duration":107,"files":{"hds":"RNFJiJVN7_Ab","wifi":"UleeiYvbASjv","3g":"n6uCl3aldHAc","hls_tablet":"18LiGP_U4jrK","hls_phone":"uS0TF_UQve5K"},"isVertical":false},{"id":"a3782153-b773-42b9-b7c2-5533640be98b","title":"Fitness trackers take new forms at CES 2016","description":"Health tracking tech is one of the big trends of the Consumer Electronics Show. Fitbit Blaze got plenty of buzz, but other trackers went in a different direction -- and some you don\u0027t have to wear on the wrist at all.","slug":"fitness-trackers-take-new-forms-at-ces-2016","chapters":"","mpxId":597685827671,"mpxRefId":"urH2ux3nLmC0og_OEJhoYDBoDnDXryen","primaryTopic":{"id":""},"author":{"id":"95981d0c-8175-11e2-9d12-0018fe8a00b0","firstName":"Bridget","lastName":"Carey"},"primaryCollection":{"id":"8cd2040c-3418-4f94-8b69-f04447141857","title":["CES 2016","CNET Update"]},"duration":166,"files":{"hds":"3Du_KFeOa6aN","wifi":"VF86m4x_w1Ef","3g":"IiLUYkeE5Hj8","hls_tablet":"1747AIIuyVOW","hls_phone":"y_Zo9Xf2mBXX"},"isVertical":false},{"id":"96e75eb1-3e0d-4021-8742-71d18a7ed91a","title":"You\u0027re going to love these robots","description":"UBtech\u0027s robots can teach your kids and regulate your home.","slug":"youre-going-to-love-these-robots","chapters":"","mpxId":597317699599,"mpxRefId":"L0dVxHyHK20numoy26E4bSavKDTkSt9L","primaryTopic":{"id":""},"author":{"id":"7b9950fa-8176-11e2-9d12-0018fe8a00b0","firstName":"Jessica","lastName":"Dolcourt"},"primaryCollection":{"id":"eecc306e-81eb-45e3-bfd5-e085d3bd14c0","title":["First Look","CES 2016"]},"duration":87,"files":{"hds":"1ZbOHdFfss7z","hls_phone":"3E0bHI1j3lrX","hls_tablet":"qpvDRKRfRC7E","wifi":"y3P1l7aD9T_E","3g":"AFKw4CBzXhUl"},"isVertical":false},{"id":"167b32df-640f-4f61-8b4a-63129f38e6f3","title":"CNET\u0027s Next Big Thing Supersession at CES 2016 asks: Is typing dead?","description":"Typing on little devices is annoying and Siri can only get you so far. What\u0027s next? Check out this replay of our compelling discussion with a panel of industry experts on the future of device interaction.","slug":"cnets-next-big-thing-supersession-at-ces-2016-asks-is-typing-dead","chapters":"","mpxId":597304387726,"mpxRefId":"dgVTiliux2hAbhhIkw_T8hDRe2xW0i3c","primaryTopic":{"id":""},"author":{"id":"17cbfe9a-8243-11e3-b21f-14feb5ca9861","firstName":"Tim","lastName":"Stevens"},"primaryCollection":{"id":"eecc306e-81eb-45e3-bfd5-e085d3bd14c0","title":["Next Big Thing","CES 2016"]},"duration":3441,"files":{"hds":"W8Aaj_w1EPna","hls_phone":"AL1CBnhuPQNx","3g":"hCLjhTgLejkV","wifi":"TqCsQpke2eQq","hls_tablet":"YpzJYxPv7_tH"},"isVertical":false},{"id":"1a3721ea-96af-42cf-8783-2a55b3bb058a","title":"CES 2016, Day 1: The Daqri Smart Helmet and Two Bit Circus (Tomorrow Daily 293)","description":"Ashley and Jeff discuss the Oculus Rift\u0027s $599 price tag, take a look at Intel\u0027s Daqri Smart Helmet and sit down to talk about the intersection of tech and spectacle with the CEO of Two Bit Circus, Brent Bushnell.","slug":"ces-2016-day-1-the-daqri-smart-helmet-and-two-bit-circus-tomorrow-daily-293","chapters":"","mpxId":597135939619,"mpxRefId":"8Nh9_y3yWTOCA8nnU34EbTmAOcdqGwgl","primaryTopic":{"id":""},"author":{"id":"b163284d-6b73-44fc-b3e6-3da66c392d40","firstName":"Ashley","lastName":"Esqueda"},"primaryCollection":{"id":"eecc306e-81eb-45e3-bfd5-e085d3bd14c0","title":["Tomorrow Daily","CES 2016"]},"duration":1537,"files":{"hls_tablet":"3CzWFdtt9_jN","hds":"R5Qwb1FfW_Wo","hls_phone":"6Y2imfQAhio3","wifi":"gxe_m3vD_Bmt","3g":"of_fEg0VHQBX"},"isVertical":false},{"id":"27e2b1ee-b948-49a3-85e6-a07bd7a0b422","title":"Shop from your fridge? Smart appliances evolve to wow at CES 2016","description":"Large appliances are the early star of the Consumer Electronics Show, with refrigerators that order groceries and dishwashers that shop from Amazon to get more detergent. Washing machines can even do their own drying.","slug":"shop-from-your-fridge-smart-appliances-evolve-to-wow-at-ces-2016","chapters":"","mpxId":596889155551,"mpxRefId":"5m_IRseIgy_4c_gELfnHtHt5VLo1BKGn","primaryTopic":{"id":""},"author":{"id":"95981d0c-8175-11e2-9d12-0018fe8a00b0","firstName":"Bridget","lastName":"Carey"},"primaryCollection":{"id":"8cd2040c-3418-4f94-8b69-f04447141857","title":["CNET Update","CES 2016"]},"duration":169,"files":{"wifi":"_3a2i3uuIq_M","hds":"HXgAN7_45VAg","3g":"LI0UOjokaPO3","hls_tablet":"Bo_WL1ARCNRm","hls_phone":"9aYfQv1Giuzx"},"isVertical":false},{"id":"cd76849c-bf45-4e23-8064-49e80703849d","title":"These shorts will make you a better runner","description":"Lumo Run analyzes your running form and gives real-time coaching to run better, faster and with few injuries","slug":"these-shorts-will-make-you-a-better-runner","chapters":"","mpxId":596538947739,"mpxRefId":"4KgG31nIXn7rnxH1R_WzSXPoTJmgt8Dx","primaryTopic":{"id":""},"author":{"id":"6085384d-619e-11e3-b231-14feb5ca9861","firstName":"Sarah","lastName":"Mitroff"},"primaryCollection":{"id":"eecc306e-81eb-45e3-bfd5-e085d3bd14c0","title":["First Look","CES 2016"]},"duration":64,"files":{"wifi":"Ri4vcaCGPJMa","hds":"BmiJrYyWo0ls","hls_tablet":"OxtkBDheC4mr","hls_phone":"Eo91xPuQBmr4","3g":"gkUnoR7vRTiO"},"isVertical":false},{"id":"033c7b72-4a48-4650-80a7-09aa6162efd2","title":"CES 2016 gets weird with fridge screens, far-out supercars, smelly alarms","description":"As the big electronics show gets started, strange is taking center stage. Bridget Carey highlights some unusual tech getting early buzz, including the Faraday Future\u0027s FFZero1 concept car.","slug":"ces-2016-gets-weird-with-fridge-screens-far-out-supercars-smelly-alarms","chapters":"","mpxId":596120131928,"mpxRefId":"6JvRpmkB_a8cp021pZl_dY2E2ZWX7i43","primaryTopic":{"id":""},"author":{"id":"95981d0c-8175-11e2-9d12-0018fe8a00b0","firstName":"Bridget","lastName":"Carey"},"primaryCollection":{"id":"8cd2040c-3418-4f94-8b69-f04447141857","title":["CES 2016","CNET Update"]},"duration":228,"files":{"hls_phone":"f7taVjnktIp5","wifi":"__vNIx3105Jg","hls_tablet":"SXVaI3NV3VU0","3g":"tf69vfdlelK3","hds":"s4JhdUAqXDpo"},"isVertical":false}],"relatedItems":null,"autoplay":"false","timelineContainer":".videoPromo","vidInfoContainer":null,"monitorProgress":null,"refreshAds":["mpu-plus-top","skin","leader-bottom","leader-top","social-logo-bottom","inline-product-carousel-top"],"timeRange":"","popOnScroll":false,"config":{"policies":{"default":11417438},"players":{"default":{"mpx_account":"kYEXFC","runtimes":"Flash,HTML5","playerUrl":"http:\/\/player.theplatform.com\/p\/kYEXFC\/cnet-video-player","layoutUrl":{"desktop":"\/bundles\/cnetvideo\/pdk\/skins\/cnet\/cnetLayout.desktop.xml","mobile":"\/bundles\/cnetvideo\/pdk\/skins\/cnet\/cnetLayout.mobile.xml","videoDoor":"\/bundles\/cnetvideo\/pdk\/skins\/cnet\/cnetLayout.videoDoor.xml"},"skinUrl":{"desktop":"\/bundles\/cnetvideo\/pdk\/skins\/cnet\/cnetSkin.desktop.json","mobile":"\/bundles\/cnetvideo\/pdk\/skins\/cnet\/cnetSkin.mobile.json"},"colors":{"controlFrameColor":"0x3e3e3e","controlBackgroundColor":"0x656565","controlHoverColor":"0xffffff","controlSelectedColor":"0xffffff","controlColor":"0xbbbbbb","frameColor":"0x3e3e3e","playProgressColor":"0x4583b2","scrubberFrameColor":"0x61809e","scrubberColor":"0xffffff","scrubTrackColor":"0x3a424d","pageBackgroundColor":"0x000000"},"plugins":{"1":"vast","2":"omniture","3":"dw","4":"comscore","5":"nielsen"}}},"tracking":{"can_partner_id":"canPartnerID","comscore_id":"3000085","comscore_home":"3000085","comscore_news":"3000078","comscore_reviews":"3000087","comscore_videos":"3000088","nielsen_cid":"us-200330","nielsen_vcid":"c07","nielsen_vcid_reviews":"c05","nielsen_vcid_home":"c07","nielsen_vcid_news":"c08","nielsen_vcid_how_to":"c09","nielsen_vcid_videos":"c20"}},"layoutUrl":"http:\/\/cnet4.cbsistatic.com\/fly\/bundles\/cnetvideo\/pdk\/skins\/cnet\/cnetLayout.desktop.xml","skinUrl":"http:\/\/cnet1.cbsistatic.com\/fly\/bundles\/cnetvideo\/pdk\/skins\/cnet\/cnetSkin.desktop.json","baseUrl":"http:\/\/www.cnet.com\/","runtime":"Flash","policy":null,"adBlockTitle":"Sorry about that","adBlockMessage":"It looks like you\u0027re using an ad blocker. We know you don\u0027t love ads. But they allow us to pay the writers, editors and producers who work to make your favorite CNET videos. To watch this video, please disable your ad blocker and refresh the page. Thanks for tuning in. You\u0027re the best.","noFlashTitle":"Flash Player upgrade required","noFlashMessage":"Please &lt;a href=\u0022http:\/\/get.adobe.com\/flashplayer\/\u0022 target=\u0022_new\u0022&gt;download and install&lt;\/a&gt;  the latest version of the Adobe Flash Player to watch this video.","hideItem":null,"targetItem":null,"partnerId":null}'><div data-item="loadingCircle" id="countdownSpinner" data-iteration="5"><div id="countdownCount"></div></div><script type="text/javascript">
+
+            if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)) {
+                document.getElementById('countdownSpinner').setAttribute('id', 'loadingCircle');
+                document.getElementById('countdownCount').innerHTML = "";
+            }
+
+            var cdcIntervalId = setInterval(function () {
+                var iteration = (document.getElementById('countdownSpinner')) ? document.getElementById('countdownSpinner').getAttribute('data-iteration') : 0;
+                if (iteration == undefined || iteration == 'NaN' || iteration == 0) {
+                    clearInterval(cdcIntervalId);
+                } else {
+                    document.getElementById('countdownCount').innerHTML = iteration;
+                    document.getElementById('countdownSpinner').setAttribute('data-iteration', iteration - 1);
+                }
+            }, 1000);
+        </script><div id="customPlayerCards"></div><script data-item="abCheck" src="http://cnet2.cbsistatic.com/fly/bundles/cnetjs/js/utils/advertisement3.js" type="text/javascript"></script></div><div class="videoSlide"><div><div class="playOverlay" data-item="playOverlay"></div><figure class=" img"><img src="http://cnet3.cbsistatic.com/hub/i/r/2016/01/06/2966d69a-59f0-4e34-ba33-799d2d009690/thumbnail/770x433/ceda864854e634ff1a5734eaff18f642/flintelcomputestickstill.jpg" class="photo" alt="" height="433" width="770"></figure></div><div class="meta"><h4>Intel's Compute Stick adds ports and power</h4><p class="dek">Turn any TV or monitor into a mini-desktop with this stick-sized PC.</p><span class="author">by <span class="name">Dan Ackerman</span></span><span class="date"><time datetime="January 6, 2016">January 6, 2016</time></span></div></div></div></div><div class="sponsoredContentHeader"><h6></h6></div><div id="video-thumbnail-top-568f3b88904e2" class="ad-video-thumbnail-top" data-ad="video-thumbnail-top"><script>
+        window.console && console.log && console.log("ADS: queuing video-thumbnail-top-568f3b88904e2 for display");
+        var cbsiGptDivIds = cbsiGptDivIds || [];
+        cbsiGptDivIds.push("video-thumbnail-top-568f3b88904e2");
+    </script></div></div><div class="col-2"></div></div><div id="leader-bottom-568f3b88904e2" class="ad-leader-bottom" data-ad="leader-bottom"><script>
+        window.console && console.log && console.log("ADS: queuing leader-bottom-568f3b88904e2 for display");
+        var cbsiGptDivIds = cbsiGptDivIds || [];
+        cbsiGptDivIds.push("leader-bottom-568f3b88904e2");
+    </script></div><div class="col-8 yad-magnet yad-facebook-wants-to-make-phone-numbers-obsolete-in-2016" data-component="yahooAdSearch" data-yahoo-ad-search-options='{"yahooId":"2e80adb3-3fdc-3b4c-98c3-bb7c086a50c1","yahooSelector":".yad-facebook-wants-to-make-phone-numbers-obsolete-in-2016","ftag":"YHRbd38a98"}'></div></div></div></div></div></div></div>    </div>
+        </div>
+
+                                    
+<footer id="rbFooter"><div id="footerCopyright" class="col-12">
+        <span class="copyright">© CBS Interactive Inc.  /  All Rights Reserved.</span>
+        <div id="legal">
+            <a href="http://cbsi.force.com/CBSi/privacy" rel="nofollow">Privacy Policy</a>
+            <a href="http://legalterms.cbsinteractive.com/adchoice" rel="nofollow">Ad Choice</a>
+            <a href="http://legalterms.cbsinteractive.com/terms-of-use" rel="nofollow">Terms of Use</a>
+            <a href="http://legalterms.cbsinteractive.com/eula" rel="nofollow">Mobile User Agreement</a>
+        </div>
+    </div>
+
+    <div class="container">
+        
+                                    <div id="dynamic-text-link-top-568f3b88904e2" class="ad-dynamic-text-link-top" data-ad="dynamic-text-link-top">
+    <script>
+        window.console && console.log && console.log("ADS: queuing dynamic-text-link-top-568f3b88904e2 for display");
+        var cbsiGptDivIds = cbsiGptDivIds || [];
+        cbsiGptDivIds.push("dynamic-text-link-top-568f3b88904e2");
+    </script></div>
+                </div>
+
+    <nav id="footerMap" class="container"><ul class="col-2 first"><li><a href="/">cnet</a></li>
+        </ul><ul class="col-2"><li class="section">Reviews</li>
+            <li><a href="/reviews/">All Reviews</a></li>
+            <li><a href="/topics/audio/">Audio</a></li>
+            <li><a href="/topics/cameras/">Cameras</a></li>
+            <li><a href="/topics/car-tech/">Car Tech</a></li>
+            <li><a href="/topics/desktops/">Desktops</a></li>
+            <li><a href="/topics/laptops/">Laptops</a></li>
+            <li><a href="/topics/phones/">Phones</a></li>
+            <li><a href="/topics/tablets/">Tablets</a></li>
+            <li><a href="/topics/tvs/">TVs</a></li>
+        </ul><ul class="col-2"><li class="section">News</li>
+            <li><a href="/news/">All News</a></li>
+            <li><a href="/apple/" data-vanity-rewritten="true">Apple</a></li>
+            <li><a href="/crave/" data-vanity-rewritten="true">Crave</a></li>
+            <li><a href="/topics/internet/" data-vanity-rewritten="true">Internet</a></li>
+            <li><a href="/tags/microsoft/">Microsoft</a></li>
+            <li><a href="/topics/mobile/" data-vanity-rewritten="true">Mobile</a></li>
+            <li><a href="/topics/sci-tech/" data-vanity-rewritten="true">Sci-Tech</a></li>
+            <li><a href="/topics/security/" data-vanity-rewritten="true">Security</a></li>
+            <li><a href="/topics/tech-industry/" data-vanity-rewritten="true">Tech Industry</a></li>
+        </ul><ul class="col-2"><li class="section">Video</li>
+            <li><a href="/videos/">All Video</a></li>
+            <li><a href="/apple-byte/" data-vanity-rewritten="true">Apple Byte</a></li>
+            <li><a href="/cnet-on-cars/" data-vanity-rewritten="true">CNET On Cars</a></li>
+            <li><a href="/cnet-top-5/" data-vanity-rewritten="true">CNET Top 5</a></li>
+            <li><a href="/cnet-update/" data-vanity-rewritten="true">CNET Update</a></li>
+            <li><a href="/next-big-thing/" data-vanity-rewritten="true">Next Big Thing</a></li>
+            <li><a href="/tomorrow-daily/" data-vanity-rewritten="true">Tomorrow Daily</a></li>
+            <li><a href="/carfection/" data-vanity-rewritten="true">XCAR</a></li>
+            <li><a href="/cnet-podcasts/" data-vanity-rewritten="true">CNET Podcasts</a></li>
+        </ul><ul class="col-2" data-component="mobileFooterLink"><li class="section">More</li>
+            <li><a href="http://www.cbsinteractive.com/">About CBS Interactive</a></li>
+            <li><a href="/about/" data-vanity-rewritten="true">About CNET</a></li>
+            <li><a href="/cnet100/">CNET 100</a></li>
+                            <li><a href="/deals/">CNET Deals</a></li>
+                        <li><a href="/forums/">CNET Forums</a></li>
+            <li><a href="http://subscribe.cnet.com/magazine/subscribe/">CNET Magazine</a></li>
+            <li><a href="/news/mobile/" data-vanity-rewritten="true">CNET Mobile</a></li>
+            <li><a href="https://cbsi.secure.force.com/CBSi/knowledgehome?referer=cnet.com">Help Center</a></li>
+            <li><a href="http://reprints.ygsgroup.com/m/cnet/">Permissions</a></li>
+        </ul><ul class="col-2 last"><li class="section">Follow CNET via...</li>
+            <li><a href="http://www.facebook.com/cnet" class="social-core-facebook">Facebook</a></li>
+            <li><a href="http://twitter.com/cnet" class="social-core-twitter">Twitter</a></li>
+            <li><a href="https://plus.google.com/u/0/105198124856956810263/posts" class="social-core-google">Google+</a></li>
+            <li><a href="http://www.youtube.com/user/CNETTV" class="social-core-youtube">YouTube</a></li>
+            <li><a href="https://www.linkedin.com/company/cnet" class="social-core-linkedin">LinkedIn</a></li>
+            <li><a href="http://cnet.tumblr.com/" class="social-core-tumblr">Tumblr</a></li>
+            <li><a href="http://pinterest.com/cnet" class="social-core-pinterest">Pinterest</a></li>
+            <li><a href="/user/join-cnet/" class="social-core-newsletters">Newsletters</a></li>
+            <li><a href="/rss/" class="social-core-rss" data-vanity-rewritten="true">RSS</a></li>
+        </ul></nav></footer><!--Visual Revenue Reader Response Tracking Script (v6) --><script type="text/javascript">
+        function vr_init() {
+            $('.load-more').trigger('click');
+        }
+
+        var _vrq = _vrq || [];
+        _vrq.push(['id', 514]);
+        _vrq.push(['automate', false]);
+        _vrq.push(['track', function(){}]);
+        (function(d, a){
+            var s = d.createElement(a),
+            x = d.getElementsByTagName(a)[0];
+            s.async = true;
+            s.src = 'http://a.visualrevenue.com/vrs.js';
+            x.parentNode.insertBefore(s, x);
+        })(document, 'script');
+    </script><!-- End of VR RR Tracking Script - All rights reserved --><div data-component="yahooBeacon" data-yahoo-beacon-options='{"yahooId":"3dea089e-a865-35a2-aee5-6271e85057cf","yahooClass":"YAD-3dea089e-a865-35a2-aee5-6271e85057cf"}'></div>
+        
+<script data-main="http://cnet3.cbsistatic.com/fly/1989-fly/js/main.default.js" src="http://cnet2.cbsistatic.com/fly/js/libs/require-2.1.2.js"></script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"252d33b7c9","applicationID":"3674670","transactionName":"Y1xRYUdUX0ICUUxaDloWclZBXF5fTFNKRwhXVVZqRlxfVg9XFkYS","queueTime":0,"applicationTime":515,"atts":"TxtGFw9OTB1BUxoJGklE","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-768.min.js"}</script></body></html>

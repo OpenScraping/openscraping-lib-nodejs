@@ -1,0 +1,7 @@
+{
+  "_removeNodes": [
+    "//script",
+    "//style"
+  ],
+  "adsWithScript": "//div[@id='social-logo-bottom-568f3b88904e2']"
+}
