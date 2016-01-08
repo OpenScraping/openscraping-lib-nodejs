@@ -1,4 +1,8 @@
 {
+  "_removeNodes": [
+    "//script",
+    "//style"
+  ],
   "products": 
   {
     "_xpath": "//div[@id='productLists']//div[starts-with(@id, 'item_')]",

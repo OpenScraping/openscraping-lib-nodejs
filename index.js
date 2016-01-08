@@ -105,6 +105,8 @@ module.exports = (function createParser () {
     
     var ret = {}
     
+    maybeRemoveNodes(config, node)
+    
     for (var configKey in config) {
       if (typeof configKey === 'string' && configKey.length > 0 && configKey[0] !== '_') {
         var configValue = config[configKey]
@@ -117,6 +119,39 @@ module.exports = (function createParser () {
     }
     
     return ret
+  }
+  
+  function maybeRemoveNodes (config, node) {
+    if (config._removeNodes) {
+      var removeNodeRules = config._removeNodes
+      
+      if (typeof removeNodeRules === 'string') {
+        removeNodeRules = [ removeNodeRules ]
+      }
+    
+      if (removeNodeRules.length) {
+        removeNodes(removeNodeRules, node)
+      }
+    }
+  }
+  
+  function removeNodes (removeNodeRules, node) {
+    for (var removeNodeIndex in removeNodeRules) {
+      var removeNodeRule = removeNodeRules[removeNodeIndex]
+      var nodesToRemove = xpath.select(removeNodeRule, node)
+      
+      if (typeof nodesToRemove !== 'undefined') {
+        for (var i = 0; i < nodesToRemove.length; i++) {
+          removeNode(nodesToRemove[i])
+        }
+      }
+    }
+  }
+  
+  function removeNode (node) {
+    if (node && node.parentNode) {
+      node.parentNode.removeChild(node)
+    }
   }
   
   function retrieveNodeContents (node, transformations, requestedTransformations) {

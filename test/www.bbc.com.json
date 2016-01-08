@@ -1,4 +1,8 @@
 {
+  "_removeNodes": [
+    "//script",
+    "//style"
+  ],
   "title": "//div[contains(@class, 'story-body')]//h1",
   "dateTime":
   {
