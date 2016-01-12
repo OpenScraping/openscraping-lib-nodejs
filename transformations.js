@@ -19,7 +19,8 @@ module.exports = (function createTransformations () {
   return {
     TrimTransformation: trim,
     ParseDateTransformation: parseDate,
-    RemoveExtraWhitespaceTransformation: removeExtraWhitespace
+    RemoveExtraWhitespaceTransformation: removeExtraWhitespace,
+    TextExtractionBetterWhitespaceTransformation: textExtractionBetterWhitespace
   }
   
   function trim (node, config) {
@@ -66,5 +67,51 @@ module.exports = (function createTransformations () {
     }
     
     return textContent.replace(findExtraWhitespacesRegex, ' ')
+  }
+  
+  function textExtractionBetterWhitespace (node, config) {
+    var textContent
+    
+    if (typeof node === 'string') {
+      textContent = node
+    } else {
+      textContent = extractTextContents(node)
+    }
+    
+    return textContent
+  }
+  
+  // Code modified from getTextContent in xmldom/dom.js - https://github.com/jindw/xmldom
+  // Node number documentation from https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType
+  function extractTextContents (node) {
+    var buf = []
+    var textContents
+    
+    switch (node.nodeType) {
+      case 1: // Element node such as <p> or <div>
+      case 11: // A DocumentFragment node ( a minimal document object that has no parent)
+        node = node.firstChild
+        while (node) {
+          // Type 7 = a ProcessingInstruction of an XML document such as <?xml-stylesheet ... ?> declaration
+          // Type 8 = a Comment node
+          if (node.nodeType !== 7 && node.nodeType !== 8) {
+            textContents = extractTextContents(node)
+            
+            if (textContents.length > 0 && buf.length > 0) {
+              var previousTextContents = buf[buf.length - 1]
+              
+              if (textContents[0] !== ' ' && previousTextContents.length > 0 && previousTextContents[previousTextContents.length - 1] !== ' ') {
+                buf.push(' ')
+              }
+            }
+            
+            buf.push(textContents)
+          }
+          node = node.nextSibling
+        }
+        return buf.join('')
+      default:
+        return node.nodeValue
+    }
   }
 }())

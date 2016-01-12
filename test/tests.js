@@ -189,3 +189,28 @@ describe('RemoveExtraWhitespaceTransformation', function () {
     done()
   })
 })
+
+describe('TextExtractionBetterWhitespaceTransformation', function () {
+  it('should add extra white spaces between a subheading and the body of the article', function (done) {
+    var config = `
+    {
+      "body":
+      {
+        "_xpath": "//div[contains(@class, 'article')]",
+        "_transformations":
+        [
+          "TextExtractionBetterWhitespaceTransformation"
+        ]
+      }
+    }
+    `
+
+    var html = '<html><body><h1>Article title</h1><div class="article"><h2>Subheading</h2>Article <a href="">three    words  link </a> contents</div><p>Footer1</p><p>Footer2</p></body></html>'
+    
+    scrapingResults = openscraping.parse(JSON.parse(config), html)
+    assert.isString(scrapingResults.body, 'scrapingResults.body should exist and be a string')
+    assert.strictEqual(scrapingResults.body, 'Subheading Article three    words  link  contents', 'body should contain whitespace between the subheading and the article contents')
+    
+    done()
+  })
+})
