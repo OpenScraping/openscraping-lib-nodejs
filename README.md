@@ -1,4 +1,4 @@
-# OpenScraping Node.js library
+# OpenScraping HTML Structured Data Extraction Node.js library
 
 [![license:isc](https://img.shields.io/badge/license-isc-brightgreen.svg?style=flat-square)](https://github.com/zmarty/openscraping-lib-nodejs/blob/master/LICENSE) [![Build Status](https://img.shields.io/travis/zmarty/openscraping-lib-nodejs.svg?style=flat-square)](https://travis-ci.org/zmarty/openscraping-lib-nodejs) [![npm package version](https://img.shields.io/npm/v/openscraping.svg?style=flat-square)](https://www.npmjs.com/package/openscraping) [![devDependencies:?](https://img.shields.io/david/zmarty/openscraping-lib-nodejs.svg?style=flat-square)](https://david-dm.org/zmarty/openscraping-lib-nodejs)
 
