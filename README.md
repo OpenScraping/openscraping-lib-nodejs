@@ -2,7 +2,7 @@
 
 [![license:isc](https://img.shields.io/badge/license-isc-brightgreen.svg?style=flat-square)](https://github.com/zmarty/openscraping-lib-nodejs/blob/master/LICENSE) [![Build Status](https://img.shields.io/travis/zmarty/openscraping-lib-nodejs.svg?style=flat-square)](https://travis-ci.org/zmarty/openscraping-lib-nodejs) [![npm package version](https://img.shields.io/npm/v/openscraping.svg?style=flat-square)](https://www.npmjs.com/package/openscraping) [![devDependencies:?](https://img.shields.io/david/zmarty/openscraping-lib-nodejs.svg?style=flat-square)](https://david-dm.org/zmarty/openscraping-lib-nodejs)
 
-Turn unstructured HTML pages into structured data. The OpenScraping library can extract information from HTML pages using a JSON config file with xPath rules. It can extract complex objects such as tables and forum posts.
+Turn unstructured HTML pages into structured data. The OpenScraping library can extract information from HTML pages using a JSON config file with xPath rules. It can scrape even multi-level complex objects such as tables and forum posts. 
 
 **Beta version, do not use for production yet.**
 
