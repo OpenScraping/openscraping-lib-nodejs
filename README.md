@@ -116,3 +116,16 @@ Here is a snippet of the result:
 
 Here is how the [www.ikea.com page](https://github.com/zmarty/openscraping-lib-nodejs/blob/master/test/www.ikea.com.html) looked like on the day we saved the HTML for this sample:
 <p align="center"><img src='https://i.imgur.com/2Q65ybI.jpg' alt='Ikea example page' width='500'></p>
+
+## Transformations
+
+In the Ikea example above we used a transformation called *TrimTransformation*. Transformation modify the raw extracted HTML nodes in some ways. For instance, TrimTransformation just runs [*str*.trim()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim) on the extracted text before it gets written to the JSON output.
+
+Here are a few of the built-in transformations:
+
+Name                                         | Purpose | Example
+-------------------------------------------- | ------- | --------------
+ParseDateTransformation                      | Uses the [*Date*.parse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse) function to parse a string into a date, then converts it back to a string with a certain date format. | [Here](https://github.com/zmarty/openscraping-lib-nodejs/blob/master/test/www.bbc.com.json)
+RemoveExtraWhitespaceTransformation      | Replaces consecutive spaces with a single space. For the string "hello     world" it would return "hello world". | 
+TrimTransformation                           | Runs  [*str*.trim()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim) on the extracted text before it gets written to the JSON output.  | [Here](https://github.com/zmarty/openscraping-lib-nodejs/blob/master/test/www.ikea.com.json)
+TextExtractionBetterWhitespaceTransformation | The default text extractor just calls *node.textContent*, which often concatenates strings without adding white space between them. This implementation tries to solve this problem by adding extra white spaces in some cases. |
