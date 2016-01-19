@@ -6,6 +6,8 @@ Turn unstructured HTML pages into structured data. The OpenScraping library can 
 
 This is the **Node.js** version. A separate but similar **C#** library is located [here](https://github.com/Microsoft/openscraping-lib-csharp/).
 
+If you want to directly run an API server with both a test console UI and an HTTP API, please take a look at the [OpenScraping API Server](https://github.com/zmarty/openscraping-api-server-nodejs). The API server does **not** contain a crawler, it just runs rules against HTML sent in with an HTTP POST.
+
 ## Self-contained example
 First install the package using npm in your project:
 
