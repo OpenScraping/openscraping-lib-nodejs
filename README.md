@@ -42,7 +42,7 @@ Full extracted json: {"title":"Article title","body":"Article contents"}
 
 ## OpenScraping API Server
 
-If you want to directly run an API server with both a test console UI and an HTTP API, please take a look at the [OpenScraping API Server](https://github.com/zmarty/openscraping-api-server-nodejs). The API server does **not** contain a crawler, it just runs rules against HTML sent in with an HTTP POST.
+If you want to directly run an API server with both a test console UI and an HTTP API, please take a look at the [OpenScraping API Server](https://github.com/OpenScraping/openscraping-api-server-nodejs). The API server does **not** contain a crawler, it just runs rules against HTML sent in with an HTTP POST.
 
 ## Example: Extracting an article from bbc.com
 
