@@ -1,11 +1,11 @@
 {
   "name": "openscraping",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Turn unstructured HTML pages into structured data. The OpenScraping library can extract information from HTML pages using a JSON config file with xPath rules. It can scrape even multi-level complex objects such as tables and forum posts.",
   "main": "index.js",
   "dependencies": {
     "jsdom": "^7.2.1",
-    "moment": "^2.10.6",
+    "moment": "^2.11.2",
     "xmldom": "^0.1.19",
     "xmlserializer": "^0.3.3",
     "xpath": "0.0.9"
