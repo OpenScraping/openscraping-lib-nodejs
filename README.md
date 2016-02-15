@@ -125,7 +125,7 @@ Here is how the [www.ikea.com page](https://github.com/OpenScraping/openscraping
 
 In the Ikea example above we used a map transformation called *TrimTransformation*. Transformation modify the raw extracted HTML nodes in some ways. For instance, TrimTransformation just runs [*str*.trim()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim) on the extracted text before it gets written to the JSON output.
 
-The difference between **map* and **reduce** transformations is that map transformations act on individual items (for instance on all paragraphs that match the rule _//p_), while reduce transformations act on the array of extracted items (in our case on all paragraphs). Reduce transformations can be used, for instance, to merge all extracted paragraphs into a single continuous string, because it received the array of strings as input, and it can choose to return a single string as output.
+The difference between **map** and **reduce** transformations is that map transformations act on individual items (for instance on all paragraphs that match the rule _//p_), while reduce transformations act on the array of extracted items (in our case on all paragraphs). Reduce transformations can be used, for instance, to merge all extracted paragraphs into a single continuous string, because they receive an array of strings as input, and they can choose to return a single string as output.
 
 #### Built-in **map** transformations
 
@@ -140,4 +140,4 @@ TextExtractionBetterWhitespaceTransformation | The default text extractor just c
 
 Name                                         | Purpose | Example
 -------------------------------------------- | ------- | --------------
-MergeTextArrayIntoSingleText                      | Expects an array of strings as input, and outputs a single string that concatenates all strings from the input array. Each string is trimmed. If an array item is empty, it is ignored. The transformation concatenated strings using a single space character. | [Here](https://github.com/OpenScraping/openscraping-lib-nodejs/blob/master/test/merge-text-array-into-single-text.json)
+MergeTextArrayIntoSingleText                      | Expects an array of strings as input, and outputs a single string that concatenates all strings from the input array. Each string is trimmed. If an array item is empty, it is ignored. The transformation concatenates strings using a single space character. | [Here](https://github.com/OpenScraping/openscraping-lib-nodejs/blob/master/test/merge-text-array-into-single-text.json)
