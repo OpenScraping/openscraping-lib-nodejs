@@ -149,7 +149,8 @@ describe('eslint', function () {
 
 // Run _removeNodes tests
 describe('_removeNodes rules in the config file', function () {
-  it('should correctly remove the script tags from the HTML page', function (done) {
+  
+  it('should correctly remove the script tags from an HTML page with script tags', function (done) {
     var files = ['remove-script-tags-test.json', 'remove-script-tags-test.html']
     
     async.map(files, readFilesAsync, function (err, results) {
@@ -162,6 +163,24 @@ describe('_removeNodes rules in the config file', function () {
       done()
     })
   })
+
+  it('should correctly remove unwanted nodes from a complex HTML page', function (done) {
+    var files = ['remove-unwanted-nodes.json', 'remove-unwanted-nodes.html']
+    
+    async.map(files, readFilesAsync, function (err, results) {
+      if (err) throw err
+     
+      scrapingResults = openscraping.parse(JSON.parse(results[0]), results[1])
+      assert.isObject(scrapingResults, 'The scraping results should be of type object')
+      assert.isString(scrapingResults.text, 'scrapingResults.text should exist and be a string')
+      assert.isAbove(scrapingResults.text.length, 0, 'The extracted text should have a length > 0')
+      assert.notInclude(scrapingResults.text, 'Last Updated: February 14 2016', '_removeNodes rule should have removed the author and date div')
+      assert.notInclude(scrapingResults.text, 'Venus Williams: Victorious', '_removeNodes rule should have removed the image caption')
+      assert.notInclude(scrapingResults.text, 'Related Content', '_removeNodes rule should have removed the related content box')
+      
+      done()
+    })
+  })  
 })
 
 // Run transformation tests
@@ -227,7 +246,7 @@ describe('reduceTransformations.MergeTextArrayIntoSingleText', function () {
      
       scrapingResults = openscraping.parse(JSON.parse(results[0]), results[1])
       assert.isObject(scrapingResults, 'The scraping results should be of type object')
-      assert.strictEqual(scrapingResults.text, 'Para1 Para2 Para3 Pa ra4', 'Explanation')
+      assert.strictEqual(scrapingResults.text, 'Para1 Para2 Para3 Pa ra4', 'MergeTextArrayIntoSingleText should merge the array into a single string, using white space for concatenation')
       
       done()
     })

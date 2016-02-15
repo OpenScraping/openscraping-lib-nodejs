@@ -1,0 +1,18 @@
+{
+  "title": "//article//div[contains(@class, 'header')]/h1",
+  "text": {
+    "_comment": "There is a better rule to extract all text from the article, but we are purposely using just //article to then remove certain sections from the article, so we can test _removeNodes",
+    "_xpath": "//article",
+    "_removeNodes": [
+      "//div[contains(@class, 'author')]",
+      "//div[contains(@class, 'art-hero')]",
+      "//span[contains(@class, 'caption')]",
+      "//div[contains(@class, 'art-box')]"
+    ],
+    "_mapTransformations": [
+        "TextExtractionBetterWhitespaceTransformation",
+        "RemoveExtraWhitespaceTransformation",
+        "TrimTransformation"
+    ]
+  }
+}

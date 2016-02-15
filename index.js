@@ -66,6 +66,8 @@ module.exports = (function createParser () {
       var nodes = xpath.select(config._xpath, doc)
       
       if (typeof nodes !== 'undefined') {
+        maybeRemoveNodes(config, doc)
+        
         if (hasChildrenRules) {
           for (i = 0; i < nodes.length; i++) {
             node = nodes[i]
@@ -109,7 +111,7 @@ module.exports = (function createParser () {
     return false
   }
   
-  function parseChildren (config, node) {
+  function parseChildren (config, node) {  
     config = config || {}
     
     var ret = {}
@@ -130,8 +132,8 @@ module.exports = (function createParser () {
     return ret
   }
   
-  function maybeRemoveNodes (config, node) {
-    if (config._removeNodes) {
+  function maybeRemoveNodes (config, node) {    
+    if (config && config._removeNodes && node) {
       var removeNodeRules = config._removeNodes
       
       if (typeof removeNodeRules === 'string') {
