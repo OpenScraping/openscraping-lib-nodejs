@@ -88,7 +88,7 @@ The sample configuration below is more complex as it demonstrates support for ex
     "price": 
     {
       "_xpath": ".//div[contains(@class, 'price')]/text()[1]",
-      "_transformations": [
+      "_mapTransformations": [
         "TrimTransformation"
       ]
     }
@@ -121,11 +121,13 @@ Here is a snippet of the result:
 Here is how the [www.ikea.com page](https://github.com/OpenScraping/openscraping-lib-nodejs/blob/master/test/www.ikea.com.html) looked like on the day we saved the HTML for this sample:
 <p align="center"><img src='https://i.imgur.com/2Q65ybI.jpg' alt='Ikea example page' width='500'></p>
 
-## Transformations
+## Map and Reduce Transformations
 
-In the Ikea example above we used a transformation called *TrimTransformation*. Transformation modify the raw extracted HTML nodes in some ways. For instance, TrimTransformation just runs [*str*.trim()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim) on the extracted text before it gets written to the JSON output.
+In the Ikea example above we used a map transformation called *TrimTransformation*. Transformation modify the raw extracted HTML nodes in some ways. For instance, TrimTransformation just runs [*str*.trim()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim) on the extracted text before it gets written to the JSON output.
 
-Here are a few of the built-in transformations:
+The difference between **map* and **reduce** transformations is that map transformations act on individual items (for instance on all paragraphs that match the rule _//p_), while reduce transformations act on the array of extracted items (in our case on all paragraphs). Reduce transformations can be used, for instance, to merge all extracted paragraphs into a single continuous string, because it received the array of strings as input, and it can choose to return a single string as output.
+
+#### Built-in **map** transformations
 
 Name                                         | Purpose | Example
 -------------------------------------------- | ------- | --------------
@@ -133,3 +135,9 @@ ParseDateTransformation                      | Uses the [*Date*.parse](https://d
 RemoveExtraWhitespaceTransformation      | Replaces consecutive spaces with a single space. For the string "hello     world" it would return "hello world". | 
 TrimTransformation                           | Runs  [*str*.trim()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim) on the extracted text before it gets written to the JSON output.  | [Here](https://github.com/OpenScraping/openscraping-lib-nodejs/blob/master/test/www.ikea.com.json)
 TextExtractionBetterWhitespaceTransformation | The default text extractor just calls *node.textContent*, which often concatenates strings without adding white space between them. This implementation tries to solve this problem by adding extra white spaces in some cases. |
+
+#### Built-in **reduce** transformations
+
+Name                                         | Purpose | Example
+-------------------------------------------- | ------- | --------------
+MergeTextArrayIntoSingleText                      | Expects an array of strings as input, and outputs a single string that concatenates all strings from the input array. Each string is trimmed. If an array item is empty, it is ignored. The transformation concatenated strings using a single space character. | [Here](https://github.com/OpenScraping/openscraping-lib-nodejs/blob/master/test/merge-text-array-into-single-text.json)
