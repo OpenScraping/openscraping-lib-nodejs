@@ -17,7 +17,7 @@ var async = require('async')
 var fs = require('fs')
 var path = require('path')
 var openscraping = require('../')
-var transformations = require('../transformations')
+var mapTransformations = require('../mapTransformations')
 var lint = require('mocha-eslint')
 var scrapingResults
 
@@ -132,6 +132,8 @@ describe('xpath', function () {
 })
 
 // Run eslint
+// Disabled due to eslint config problem: https://github.com/OpenScraping/openscraping-lib-nodejs/issues/2
+/*
 describe('eslint', function () {
   var paths = [
     '*.js',
@@ -143,6 +145,7 @@ describe('eslint', function () {
 
   lint(paths, options)
 })
+*/
 
 // Run _removeNodes tests
 describe('_removeNodes rules in the config file', function () {
@@ -162,42 +165,42 @@ describe('_removeNodes rules in the config file', function () {
 })
 
 // Run transformation tests
-describe('TrimTransformation', function () {
+describe('mapTransformations.TrimTransformation', function () {
   it('should trim text', function (done) {
-    assert.strictEqual(transformations.TrimTransformation('no outside spaces    '), 'no outside spaces', 'Should remove whitespace to the left and right of the string')
-    assert.strictEqual(transformations.TrimTransformation('    no outside spaces'), 'no outside spaces', 'Should remove whitespace to the left and right of the string')
-    assert.strictEqual(transformations.TrimTransformation('    no outside spaces    '), 'no outside spaces', 'Should remove whitespace to the left and right of the string')
-    assert.strictEqual(transformations.TrimTransformation(' no outside spaces '), 'no outside spaces', 'Should remove whitespace to the left and right of the string')
+    assert.strictEqual(mapTransformations.TrimTransformation('no outside spaces    '), 'no outside spaces', 'Should remove whitespace to the left and right of the string')
+    assert.strictEqual(mapTransformations.TrimTransformation('    no outside spaces'), 'no outside spaces', 'Should remove whitespace to the left and right of the string')
+    assert.strictEqual(mapTransformations.TrimTransformation('    no outside spaces    '), 'no outside spaces', 'Should remove whitespace to the left and right of the string')
+    assert.strictEqual(mapTransformations.TrimTransformation(' no outside spaces '), 'no outside spaces', 'Should remove whitespace to the left and right of the string')
     
     done()
   })
 })
 
-describe('ParseDateTransformation', function () {
+describe('mapTransformations.ParseDateTransformation', function () {
   it('should parse text to date', function (done) {
-    assert.isUndefined(transformations.ParseDateTransformation('no date here'), 'An invalid date text should not be parsed to a date object')
-    assert.strictEqual(transformations.ParseDateTransformation('2016-01-06', { '_format': 'YYYY' }), '2016', 'Should correctly parse the text to date')
+    assert.isUndefined(mapTransformations.ParseDateTransformation('no date here'), 'An invalid date text should not be parsed to a date object')
+    assert.strictEqual(mapTransformations.ParseDateTransformation('2016-01-06', { '_format': 'YYYY' }), '2016', 'Should correctly parse the text to date')
     
     done()
   })
 })
 
-describe('RemoveExtraWhitespaceTransformation', function () {
+describe('mapTransformations.RemoveExtraWhitespaceTransformation', function () {
   it('should replace extra whitespaces', function (done) {
-    assert.strictEqual(transformations.RemoveExtraWhitespaceTransformation('no  extra    whitespaces    '), 'no extra whitespaces ', 'Should replace any two consecutive whitespaces with a single whitespace')
+    assert.strictEqual(mapTransformations.RemoveExtraWhitespaceTransformation('no  extra    whitespaces    '), 'no extra whitespaces ', 'Should replace any two consecutive whitespaces with a single whitespace')
     
     done()
   })
 })
 
-describe('TextExtractionBetterWhitespaceTransformation', function () {
+describe('mapTransformations.TextExtractionBetterWhitespaceTransformation', function () {
   it('should add extra white spaces between a subheading and the body of the article', function (done) {
     var config = `
     {
       "body":
       {
         "_xpath": "//div[contains(@class, 'article')]",
-        "_transformations":
+        "_mapTransformations":
         [
           "TextExtractionBetterWhitespaceTransformation"
         ]
@@ -214,3 +217,20 @@ describe('TextExtractionBetterWhitespaceTransformation', function () {
     done()
   })
 })
+
+describe('reduceTransformations.MergeTextArrayIntoSingleText', function () {
+  it('should merge an array of strings into a single string, while ignoring empty strings', function (done) {
+    var files = ['merge-text-array-into-single-text.json', 'merge-text-array-into-single-text.html']
+    
+    async.map(files, readFilesAsync, function (err, results) {
+      if (err) throw err
+     
+      scrapingResults = openscraping.parse(JSON.parse(results[0]), results[1])
+      assert.isObject(scrapingResults, 'The scraping results should be of type object')
+      assert.strictEqual(scrapingResults.text, 'Para1 Para2 Para3 Pa ra4', 'Explanation')
+      
+      done()
+    })
+  })
+})
+

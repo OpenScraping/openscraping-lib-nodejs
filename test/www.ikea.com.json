@@ -11,7 +11,7 @@
     "price": 
     {
       "_xpath": ".//div[contains(@class, 'price')]/text()[1]",
-      "_transformations": [
+      "_mapTransformations": [
         "TrimTransformation"
       ]
     }

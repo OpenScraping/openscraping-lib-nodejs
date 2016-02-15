@@ -17,7 +17,8 @@ module.exports = (function createParser () {
   var jsdom = require('jsdom')
   var xmlser = require('xmlserializer')
   var dom = require('xmldom').DOMParser
-  var transformations = require('./transformations')
+  var mapTransformations = require('./mapTransformations')
+  var reduceTransformations = require('./reduceTransformations')
   
   jsdom.defaultDocumentFeatures = {
     FetchExternalResources: false,
@@ -29,23 +30,29 @@ module.exports = (function createParser () {
     parse: parse
   }
 
-  function parse (config, html, externalTransformations) {
+  function parse (config, html, externalMapTransformations, externalReduceTransformations) {
     config = config || {}
-    externalTransformations = externalTransformations || {}
+    externalMapTransformations = externalMapTransformations || {}
+    externalReduceTransformations = externalReduceTransformations || {}
     
-    // Merge external transformations with built-in ones
-    for (var attrname in externalTransformations) {
-      transformations[attrname] = externalTransformations[attrname]
+    // Merge external mapTransformations with built-in ones
+    for (var attrname in externalMapTransformations) {
+      mapTransformations[attrname] = externalMapTransformations[attrname]
+    }
+
+    // Merge external reduceTransformations with built-in ones
+    for (var attrname in externalReduceTransformations) {
+      reduceTransformations[attrname] = externalReduceTransformations[attrname]
     }
     
     var document = jsdom.jsdom(html.toString())
     var xhtml = xmlser.serializeToString(document)
     xhtml = xhtml.replace(' xmlns="http://www.w3.org/1999/xhtml"', '') // Ugly hack, for now
     var doc = new dom().parseFromString(xhtml)
-    return parseNode(config, doc, transformations)
+    return parseNode(config, doc)
   }
   
-  function parseNode (config, doc, transformations) {
+  function parseNode (config, doc) {
     config = config || {}
     
     var hasChildrenRules = hasAnyChildrenRules(config)
@@ -62,16 +69,18 @@ module.exports = (function createParser () {
         if (hasChildrenRules) {
           for (i = 0; i < nodes.length; i++) {
             node = nodes[i]
-            extractedElements.push(parseChildren(config, node, transformations))
+            extractedElements.push(parseChildren(config, node))
           }
           
           return extractedElements
         } else { // Leaf node(s), so we will attempt to extract text
           for (i = 0; i < nodes.length; i++) {
             node = nodes[i]
-            extractedElements.push(retrieveNodeContents(node, transformations, config._transformations || []))
+            extractedElements.push(runMapTransformations(node, config._transformations || config._mapTransformations || []))
           }
 
+          extractedElements = runReduceTransformations(extractedElements, config._reduceTransformations || [])
+          
           if (extractedElements.length === 0 && !config._forceArray) {
             return undefined
           } else if (extractedElements.length === 1 && !config._forceArray) {
@@ -84,7 +93,7 @@ module.exports = (function createParser () {
         return {}
       }
     } else {
-      return parseChildren(config, doc, transformations)
+      return parseChildren(config, doc)
     }
   }
   
@@ -100,7 +109,7 @@ module.exports = (function createParser () {
     return false
   }
   
-  function parseChildren (config, node, transformations) {
+  function parseChildren (config, node) {
     config = config || {}
     
     var ret = {}
@@ -110,7 +119,7 @@ module.exports = (function createParser () {
     for (var configKey in config) {
       if (typeof configKey === 'string' && configKey.length > 0 && configKey[0] !== '_') {
         var configValue = config[configKey]
-        var parseResults = parseNode(configValue, node, transformations)
+        var parseResults = parseNode(configValue, node)
         
         if (typeof parseResults !== 'undefined') {
           ret[configKey] = parseResults
@@ -154,7 +163,7 @@ module.exports = (function createParser () {
     }
   }
   
-  function retrieveNodeContents (node, transformations, requestedTransformations) {
+  function runMapTransformations (node, requestedTransformations) {
     if (requestedTransformations.length === 0) {
       return node.textContent
     } else {
@@ -165,10 +174,10 @@ module.exports = (function createParser () {
           requestedTransformation = { '_type': requestedTransformation }
         }
         
-        if (transformations[requestedTransformation._type]) {
-          node = transformations[requestedTransformation._type](node, requestedTransformation)
+        if (mapTransformations[requestedTransformation._type]) {
+          node = mapTransformations[requestedTransformation._type](node, requestedTransformation)
         } else {
-          throw new Error('The requested transformation ' + requestedTransformation + ' was not found within the available transformations')
+          throw new Error('The requested transformation ' + requestedTransformation + ' was not found within the available mapTransformations')
         }
       }
       
@@ -177,6 +186,28 @@ module.exports = (function createParser () {
       } else {
         return node
       }
+    }
+  }
+  
+  function runReduceTransformations (extractedElements, requestedTransformations) {
+    if (requestedTransformations.length === 0 || !Array.isArray(extractedElements)) {
+      return extractedElements
+    } else {
+      for (var i = 0; i < requestedTransformations.length; i++) {
+        var requestedTransformation = requestedTransformations[i]
+        
+        if (typeof requestedTransformation === 'string') {
+          requestedTransformation = { '_type': requestedTransformation }
+        }
+        
+        if (reduceTransformations[requestedTransformation._type]) {
+          extractedElements = reduceTransformations[requestedTransformation._type](extractedElements, requestedTransformation)
+        } else {
+          throw new Error('The requested transformation ' + requestedTransformation + ' was not found within the available reduceTransformations')
+        }
+      }
+      
+      return extractedElements
     }
   }
 }())

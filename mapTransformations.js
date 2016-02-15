@@ -75,7 +75,7 @@ module.exports = (function createTransformations () {
     if (typeof node === 'string') {
       textContent = node
     } else {
-      textContent = extractTextContents(node)
+      textContent = extractTextContent(node)
     }
     
     return textContent
@@ -83,9 +83,9 @@ module.exports = (function createTransformations () {
   
   // Code modified from getTextContent in xmldom/dom.js - https://github.com/jindw/xmldom
   // Node number documentation from https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType
-  function extractTextContents (node) {
+  function extractTextContent (node) {
     var buf = []
-    var textContents
+    var textContent
     
     switch (node.nodeType) {
       case 1: // Element node such as <p> or <div>
@@ -95,17 +95,17 @@ module.exports = (function createTransformations () {
           // Type 7 = a ProcessingInstruction of an XML document such as <?xml-stylesheet ... ?> declaration
           // Type 8 = a Comment node
           if (node.nodeType !== 7 && node.nodeType !== 8) {
-            textContents = extractTextContents(node)
+            textContent = extractTextContent(node)
             
-            if (textContents.length > 0 && buf.length > 0) {
-              var previousTextContents = buf[buf.length - 1]
+            if (textContent.length > 0 && buf.length > 0) {
+              var previousTextContent = buf[buf.length - 1]
               
-              if (textContents[0] !== ' ' && previousTextContents.length > 0 && previousTextContents[previousTextContents.length - 1] !== ' ') {
+              if (textContent[0] !== ' ' && previousTextContent.length > 0 && previousTextContent[previousTextContent.length - 1] !== ' ') {
                 buf.push(' ')
               }
             }
             
-            buf.push(textContents)
+            buf.push(textContent)
           }
           node = node.nextSibling
         }

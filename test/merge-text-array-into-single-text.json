@@ -1,0 +1,15 @@
+{
+  "title": "//article/div[contains(@class, 'header')]/h1[1]",
+  "lead": "//article//h2[1]",
+  "text": {
+      "_xpath": "//article/p",
+      "_mapTransformations": [
+          "TextExtractionBetterWhitespaceTransformation",
+          "RemoveExtraWhitespaceTransformation",
+          "TrimTransformation"
+      ],
+      "_reduceTransformations": [
+          "MergeTextArrayIntoSingleText"
+      ]      
+  }
+}
