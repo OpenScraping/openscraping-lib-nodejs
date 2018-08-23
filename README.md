@@ -4,7 +4,7 @@
 
 Turn unstructured HTML pages into structured data. The OpenScraping library can extract information from HTML pages using a JSON config file with xPath rules. It can scrape even multi-level complex objects such as tables and forum posts. 
 
-This is the **Node.js** version. A separate but similar **C#** library is located [here](https://github.com/Microsoft/openscraping-lib-csharp/).
+This is the unsupported **Node.js** version. A separate but similar and up-to-date **C#** library is located [here](https://github.com/Microsoft/openscraping-lib-csharp/).
 
 ## Self-contained example
 First install the package using npm in your project:
